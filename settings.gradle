@@ -9,4 +9,3 @@ includeBuild('aggregation')
 includeBuild('user-feature')
 
 includeBuild('server-application')
-includeBuild('android-app')
