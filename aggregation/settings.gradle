@@ -13,7 +13,6 @@ dependencyResolutionManagement {
     }
 }
 includeBuild('../platforms')
-includeBuild('../admin-feature')
 includeBuild('../user-feature')
 
 

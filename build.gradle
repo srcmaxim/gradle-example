@@ -2,7 +2,6 @@
 tasks.register('checkFeatures') {
     group = 'verification'
     description = 'Run all feature tests'
-    dependsOn(gradle.includedBuild('admin-feature').task(':config:check'))
     dependsOn(gradle.includedBuild('user-feature').task(':data:check'))
     dependsOn(gradle.includedBuild('user-feature').task(':table:check'))
 }
