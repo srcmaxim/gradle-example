@@ -14,7 +14,6 @@ dependencyResolutionManagement {
 }
 includeBuild('../platforms')
 includeBuild('../domain-model')
-includeBuild('../state')
 
 // == Define the inner structure of this component ==
 rootProject.name = 'admin-feature'

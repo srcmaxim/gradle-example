@@ -6,6 +6,4 @@ group = "${group}.user-feature"
 
 dependencies {
     implementation(project(':data'))
-
-    implementation('com.example.myproduct.state:application-state')
 }
