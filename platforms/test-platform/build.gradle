@@ -9,4 +9,7 @@ javaPlatform.allowDependencies()
 
 dependencies {
     api(platform('org.junit:junit-bom:5.7.1'))
+    constraints{
+        api('org.assertj:assertj-core:3.19.0')
+    }
 }

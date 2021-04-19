@@ -6,6 +6,5 @@ includeBuild('build-logic')
 
 includeBuild('aggregation')
 
-includeBuild('user-feature')
-
-includeBuild('server-application')
+includeBuild('features')
+includeBuild('services')

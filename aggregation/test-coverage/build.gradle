@@ -3,6 +3,6 @@ plugins {
 }
 
 dependencies {
-    // Trasitively collect coverage data from all features and their dependencies
-    aggregate('com.example.myproduct.user-feature:table')
+    aggregate('com.example.myproduct.features:cat')
+    aggregate('com.example.myproduct.features:entity')
 }

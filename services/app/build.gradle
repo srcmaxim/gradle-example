@@ -1,0 +1,12 @@
+plugins {
+    id('com.example.spring-boot-application')
+}
+
+group = "${group}.server-application"
+
+dependencies {
+    implementation('com.example.myproduct.features:cat-api')
+    implementation('com.example.myproduct.features:cat')
+    implementation('com.example.myproduct.features:entity-api')
+    implementation('com.example.myproduct.features:entity')
+}

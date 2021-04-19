@@ -1,7 +1,6 @@
-// This is an example of a lifecycle task that crosses build boundaries defined in the umbrella build.
 tasks.register('checkFeatures') {
     group = 'verification'
     description = 'Run all feature tests'
-    dependsOn(gradle.includedBuild('user-feature').task(':data:check'))
-    dependsOn(gradle.includedBuild('user-feature').task(':table:check'))
+    dependsOn(gradle.includedBuild('features').task(':cat:check'))
+    dependsOn(gradle.includedBuild('features').task(':entity:check'))
 }

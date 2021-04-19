@@ -12,9 +12,12 @@ java {
 
 dependencies {
     implementation(platform('com.example.platform:product-platform'))
+    implementation('org.apache.kafka:kafka-clients')
+    implementation('org.slf4j:slf4j-api')
 
     testImplementation(platform('com.example.platform:test-platform'))
     testImplementation('org.junit.jupiter:junit-jupiter-api')
+    testImplementation('org.assertj:assertj-core')
     testRuntimeOnly('org.junit.jupiter:junit-jupiter-engine')
 }
 
