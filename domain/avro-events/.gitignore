@@ -1,1 +1,2 @@
-src/main/java # Ignore generated classes
+# Ignore Avro generated classes
+src/main/java
