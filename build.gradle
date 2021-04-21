@@ -4,3 +4,16 @@ tasks.register('checkFeatures') {
     dependsOn(gradle.includedBuild('features').task(':cat:check'))
     dependsOn(gradle.includedBuild('features').task(':entity:check'))
 }
+
+tasks.register('clean') {
+    group = 'build'
+    description = 'Clean all'
+    dependsOn(gradle.includedBuild('services').task(':app:clean'))
+    dependsOn(gradle.includedBuild('features').task(':cat-api:clean'))
+    dependsOn(gradle.includedBuild('features').task(':cat:clean'))
+    dependsOn(gradle.includedBuild('features').task(':entity-api:clean'))
+    dependsOn(gradle.includedBuild('features').task(':entity:clean'))
+    dependsOn(gradle.includedBuild('domain').task(':avro-events:clean'))
+    dependsOn(gradle.includedBuild('domain').task(':events:clean'))
+    dependsOn(gradle.includedBuild('domain').task(':entities:clean'))
+}

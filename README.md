@@ -18,3 +18,57 @@ There are different ways to work with the sample:
   For example, `cd services` and run the app using  `../gradlew :app:bootRun`.
 - You may only build or import a selected component (and its dependencies).
   For example, only import the `features/cat` in the IDE.
+  
+## Recommended Project Structure
+
+```yml
+- aggragegation
+- build-logic
+  - avro-liblary
+  - commons(jacoco, sonarqube)
+  - java-liblary
+  - report-aggreagation
+  - spring-boot-app
+  - lambda-app
+- domain
+  - entity
+  - dto
+  - avro-events(generated)
+  - events
+  - mappers(depend on: entity, dto, events)
+- platforms
+  - plugin-platform
+  - product-platform
+  - test-platform
+- features
+  - [name]-feature-api
+  - [name]-feature
+- services
+  - [name]-service
+- lambdas
+  - [name]-lambda
+- commons
+  - [name]
+- tools
+  - [name]
+- infrastucture
+```
+
+## Commands 
+
+### Run app
+
+```cmd
+cd services 
+../gradlew :app:build --parallel --build-cache --configuration-cache --configure-on-demand
+```
+
+### Build app
+```cmd
+cd services 
+../gradlew :app:build --parallel --build-cache --configuration-cache --configure-on-demand
+```
+
+### Clean all
+
+`gradle clean`

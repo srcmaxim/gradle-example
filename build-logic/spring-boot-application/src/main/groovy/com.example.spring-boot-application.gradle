@@ -2,6 +2,7 @@ plugins {
     id('com.example.commons')
     id('org.springframework.boot')
     id('io.freefair.lombok')
+    id('application')
 }
 
 dependencies {

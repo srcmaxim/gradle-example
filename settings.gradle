@@ -8,3 +8,5 @@ includeBuild('aggregation')
 
 includeBuild('features')
 includeBuild('services')
+
+includeBuild('domain')

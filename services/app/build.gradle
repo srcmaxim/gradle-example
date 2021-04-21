@@ -5,8 +5,10 @@ plugins {
 group = "${group}.server-application"
 
 dependencies {
-    implementation('com.example.myproduct.features:cat-api')
     implementation('com.example.myproduct.features:cat')
-    implementation('com.example.myproduct.features:entity-api')
     implementation('com.example.myproduct.features:entity')
+}
+
+application {
+    mainClass = 'com.example.service.app.MyProductApplication'
 }
