@@ -5,4 +5,6 @@ plugins {
 dependencies {
     aggregate('com.example.myproduct.features:cat')
     aggregate('com.example.myproduct.features:entity')
+    aggregate('com.example.myproduct.domain:events')
+    aggregate('com.example.myproduct.domain:entities')
 }

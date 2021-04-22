@@ -18,7 +18,7 @@ There are different ways to work with the sample:
   For example, `cd services` and run the app using  `../gradlew :app:bootRun`.
 - You may only build or import a selected component (and its dependencies).
   For example, only import the `features/cat` in the IDE.
-  
+
 ## Recommended Project Structure
 
 ```yml
@@ -31,44 +31,41 @@ There are different ways to work with the sample:
   - spring-boot-app
   - lambda-app
 - domain
-  - entity
-  - dto
-  - avro-events(generated)
-  - events
-  - mappers(depend on: entity, dto, events)
+    - entity
+    - dto
+    - avro-event(generated)
+    - event
+    - mapper(depend on: entity, dto, event)
 - platforms
   - plugin-platform
   - product-platform
   - test-platform
 - features
-  - [name]-feature-api
+  - [name]-feature-api(optional)
   - [name]-feature
 - services
   - [name]-service
 - lambdas
   - [name]-lambda
-- commons
-  - [name]
-- tools
-  - [name]
-- infrastucture
+- commons(common modules, e.g. xray-common)
+  - [name]-common
+- tools(tools for project, e.g. arch-test-tool)
+  - [name]-tool
+- infrastucture(run apps)
+  - local
+  - aws
 ```
 
-## Commands 
+## Commands
 
 ### Run app
-
-```cmd
-cd services 
-../gradlew :app:build --parallel --build-cache --configuration-cache --configure-on-demand
-```
+`./gradlew :services:app:run`
 
 ### Build app
-```cmd
-cd services 
-../gradlew :app:build --parallel --build-cache --configuration-cache --configure-on-demand
-```
+`./gradlew :services:app:build`
+
+### Test app
+`./gradlew :features:cat:test --continuous`
 
 ### Clean all
-
 `gradle clean`
