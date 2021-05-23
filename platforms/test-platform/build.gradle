@@ -12,5 +12,6 @@ dependencies {
     constraints{
         api('org.assertj:assertj-core:3.19.0')
         api('org.mockito:mockito-core:3.10.0')
+        api('org.mockito:mockito-junit-jupiter:3.10.0')
     }
 }
