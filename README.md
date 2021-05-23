@@ -6,7 +6,8 @@
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=srcmaxim-gradle-example&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=srcmaxim-gradle-example)
 [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=srcmaxim-gradle-example&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=srcmaxim-gradle-example)
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=srcmaxim-gradle-example&metric=bugs)](https://sonarcloud.io/dashboard?id=srcmaxim-gradle-example)
-[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=srcmaxim-gradle-example&metric=code_smells)](https://sonarcloud.io/dashboard?id=srcmaxim-gradle-example)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=srcmaxim-gradle-example&metric=code_smells)](https://sonarcloud.io/dashboard?id=srcmaxim-gradle-example)  
+[![Build](https://github.com/srcmaxim/gradle-example/actions/workflows/build.yml/badge.svg)](https://github.com/srcmaxim/gradle-example/actions/workflows/build.yml)
 
 > You can open this sample inside an IDE using the [IntelliJ's Gradle import](https://www.jetbrains.com/help/idea/gradle.html#gradle_import_project_start) or [Eclipse Buildship](https://projects.eclipse.org/projects/tools.buildship).  
 > You can add [Google CheckStyle config](build-logic/commons/src/main/resources/StyleSources.md) for your IDE.
