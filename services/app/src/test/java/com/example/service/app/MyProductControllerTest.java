@@ -1,0 +1,44 @@
+package com.example.service.app;
+
+import static org.mockito.Mockito.any;
+import static org.mockito.Mockito.when;
+
+import com.example.domain.dto.EntityDto;
+import com.example.domain.event.Breed;
+import com.example.domain.event.Cat;
+import com.example.service.cat.CatService;
+import com.example.service.entity.EntityService;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnitRunner;
+
+@RunWith(MockitoJUnitRunner.class)
+class MyProductControllerTest {
+
+  @Mock
+  CatService catService;
+  @Mock
+  EntityService entityService;
+  @InjectMocks
+  MyProductController myProductController;
+
+  @Test
+  void testGetCat() {
+    when(catService.getCat()).thenReturn(new Cat(Breed.ABYSSINIAN));
+
+    Cat result = myProductController.getCat();
+    Assertions.assertEquals(new Cat(Breed.ABYSSINIAN), result);
+  }
+
+  @Test
+  void testGetEntity() {
+    when(entityService.map(any())).thenReturn(new EntityDto("name"));
+
+    EntityDto result = myProductController.getEntity();
+    Assertions.assertEquals(new EntityDto("name"), result);
+  }
+
+}

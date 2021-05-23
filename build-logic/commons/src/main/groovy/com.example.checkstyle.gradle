@@ -1,0 +1,35 @@
+import org.gradle.api.internal.provider.DefaultProvider
+
+import java.util.concurrent.Callable
+
+plugins {
+    id('checkstyle')
+}
+
+tasks.withType(Checkstyle) {
+    def checkstyle = "checkstyle-java-google-style.xml"
+    def checkstyleUri = getClass().getResource(checkstyle).toURI()
+    config = project.resources.text.fromUri(checkstyleUri)
+    // Set CheckStyle fail
+    // maxErrors = 0
+    // maxWarnings = 0
+}
+
+configurations.create('linterDataElements') {
+    visible = false
+    canBeResolved = false
+    canBeConsumed = true
+    extendsFrom(configurations.implementation)
+    attributes {
+        attribute(Usage.USAGE_ATTRIBUTE, objects.named(Usage, Usage.JAVA_RUNTIME))
+        attribute(Category.CATEGORY_ATTRIBUTE, objects.named(Category, Category.DOCUMENTATION))
+        attribute(DocsType.DOCS_TYPE_ATTRIBUTE, objects.named(DocsType, 'checkstyle-linter-data'))
+    }
+
+    tasks.withType(Checkstyle) {
+        reports.all {
+            def destinationFile = new DefaultProvider({ destination } as Callable)
+            outgoing.artifact destinationFile
+        }
+    }
+}

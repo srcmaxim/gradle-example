@@ -1,6 +1,8 @@
 plugins {
     id('java')
     id('com.example.jacoco')
+    id('com.example.checkstyle')
+    id('com.example.sonarqube')
 }
 
 group = 'com.example.myproduct'
@@ -18,6 +20,7 @@ dependencies {
     testImplementation(platform('com.example.platform:test-platform'))
     testImplementation('org.junit.jupiter:junit-jupiter-api')
     testImplementation('org.assertj:assertj-core')
+    testImplementation('org.mockito:mockito-core')
     testRuntimeOnly('org.junit.jupiter:junit-jupiter-engine')
 }
 

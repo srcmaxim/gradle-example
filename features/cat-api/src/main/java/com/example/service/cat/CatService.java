@@ -2,8 +2,11 @@ package com.example.service.cat;
 
 import com.example.domain.event.Cat;
 
+/**
+ * CatService.
+ */
 public interface CatService {
 
-    public Cat getCat();
+  Cat getCat();
 
 }

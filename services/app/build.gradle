@@ -2,7 +2,7 @@ plugins {
     id('com.example.spring-boot-application')
 }
 
-group = "${group}.server-application"
+group = "${group}.services"
 
 dependencies {
     implementation('com.example.myproduct.features:cat')

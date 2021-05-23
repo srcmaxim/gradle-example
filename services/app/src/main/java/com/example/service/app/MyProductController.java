@@ -10,22 +10,25 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * MyProductController.
+ */
 @RestController
 @AllArgsConstructor
 public class MyProductController {
 
-    private final CatService catService;
-    private final EntityService entityService;
+  private final CatService catService;
+  private final EntityService entityService;
 
-    @GetMapping(value = "/cat", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Cat getCat() {
-        return catService.getCat();
-    }
+  @GetMapping(value = "/cat", produces = MediaType.APPLICATION_JSON_VALUE)
+  public Cat getCat() {
+    return catService.getCat();
+  }
 
-    @GetMapping("/entity")
-    public EntityDto getEntity() {
-        Entity entity = new Entity("name");
-        return entityService.map(entity);
-    }
+  @GetMapping(value = "/entity", produces = MediaType.APPLICATION_JSON_VALUE)
+  public EntityDto getEntity() {
+    var entity = new Entity("name");
+    return entityService.map(entity);
+  }
 
 }

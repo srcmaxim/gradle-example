@@ -1,6 +1,7 @@
 plugins {
     id('java-base') // we only apply 'java-base' as this plugin is for projects without source code
     id('jacoco')
+    id('checkstyle')
 }
 
 // Configurations to declare dependencies
@@ -62,7 +63,35 @@ def codeCoverageReport = tasks.register('codeCoverageReport', JacocoReport) {
     }
 }
 
-// Make JaCoCo report generation part of the 'check' lifecycle phase
+// Register a linter report task to generate the aggregated report
+def linterReport = tasks.register('linterReport', Checkstyle) {
+    setSource(sourcesPath.incoming.artifactView { lenient(true) }.files)
+    setClasspath(classPath.filter { it.isDirectory() })
+
+    config project.resources.text.fromFile(getCheckstyleFile())
+
+    // Exclude :domain:avro-event from reports
+    exclude '**/com/example/domain/event/**'
+
+    reports {
+        html.enabled = true
+        xml.enabled = true
+    }
+}
+
+private File getCheckstyleFile() {
+    def projectDir = rootProject.projectDir.toPath()
+    if (!projectDir.endsWith('aggregation')) {
+        throw new IllegalStateException('Root Project dir is not /aggregation')
+    }
+    return projectDir
+            .resolveSibling('build-logic/commons')
+            .resolve('src/main/resources/checkstyle-java-google-style.xml')
+            .toFile()
+}
+
+// Make JaCoCo, CheckStyle report generation part of the 'check' lifecycle phase
 tasks.named('check') {
     dependsOn(codeCoverageReport)
+    dependsOn(linterReport)
 }

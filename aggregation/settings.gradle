@@ -14,8 +14,10 @@ dependencyResolutionManagement {
 }
 includeBuild('../platforms')
 includeBuild('../features')
+includeBuild('../domain')
+includeBuild('../services')
+includeBuild('../build-logic')
 
 // == Define the inner structure of this component ==
 rootProject.name = 'aggregation'
-include('test-coverage')
-
+include('test-aggregate')

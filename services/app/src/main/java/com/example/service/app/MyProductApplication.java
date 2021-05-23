@@ -6,12 +6,15 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Import;
 
+/**
+ * MyProductApplication.
+ */
 @SpringBootApplication
 @Import({DefaultCatService.class, DefaultEntityService.class})
 public class MyProductApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(MyProductApplication.class, args);
-    }
+  public static void main(String[] args) {
+    SpringApplication.run(MyProductApplication.class, args);
+  }
 
 }
