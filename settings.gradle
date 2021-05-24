@@ -3,10 +3,8 @@
 
 includeBuild('platforms')
 includeBuild('build-logic')
-
 includeBuild('aggregation')
 
+includeBuild('domain')
 includeBuild('features')
 includeBuild('services')
-
-includeBuild('domain')
