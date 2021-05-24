@@ -68,24 +68,12 @@ There are different ways to work with the sample:
 
 ## Commands
 
-### Run app
-`./gradlew :services:app:run`
-
-### Build app
-`./gradlew :services:app:build`
-
-### Test app
-`./gradlew :features:cat:test --continuous`
-
-### Run code coverage report
-`./gradlew :aggregation:test-aggregate:codeCoverageReport`
-
-### Run linter report
-`./gradlew :aggregation:test-aggregate:linterReport`
-
-
-### Run code coverage and linter report
-`./gradlew :aggregation:test-aggregate:check`
-
-### Clean all
-`./gradlew clean`
+|Command||
+|:---|---|
+|Run app|`./gradlew :services:app:run`
+|Build app| `./gradlew :services:app:build`
+|Test app|`./gradlew :features:cat:test --continuous`
+|Run code coverage <br /> report|`./gradlew :aggregation:test-aggregate:codeCoverageReport`
+|Run linter report|`./gradlew :aggregation:test-aggregate:linterReport`
+|Run code coverage <br /> and linter reports|`./gradlew :aggregation:test-aggregate:check`
+|Clean all|`./gradlew clean`
