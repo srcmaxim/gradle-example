@@ -68,7 +68,7 @@ There are different ways to work with the sample:
 
 ## Commands
 
-|Command||
+|Command|Action|
 |:---|---|
 |Run app|`./gradlew :services:app:run`
 |Build app| `./gradlew :services:app:build`
