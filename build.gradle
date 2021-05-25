@@ -3,12 +3,12 @@ tasks.register('clean') {
     description = 'Clean all'
 
     dependsOn(gradle.includedBuild('domain').task(':events:clean'))
+    dependsOn(gradle.includedBuild('domain').task(':avro-events:clean'))
     dependsOn(gradle.includedBuild('domain').task(':entities:clean'))
     dependsOn(gradle.includedBuild('features').task(':cat:clean'))
     dependsOn(gradle.includedBuild('features').task(':cat-api:clean'))
     dependsOn(gradle.includedBuild('features').task(':entity:clean'))
     dependsOn(gradle.includedBuild('features').task(':entity-api:clean'))
-    dependsOn(gradle.includedBuild('domain').task(':avro-events:clean'))
     dependsOn(gradle.includedBuild('services').task(':app:clean'))
 }
 
@@ -16,8 +16,9 @@ tasks.register('check') {
     group = 'verification'
     description = 'Check all'
 
-    dependsOn(gradle.includedBuild('domain').task(':entities:check'))
     dependsOn(gradle.includedBuild('domain').task(':events:check'))
+    dependsOn(gradle.includedBuild('domain').task(':avro-events:check'))
+    dependsOn(gradle.includedBuild('domain').task(':entities:check'))
     dependsOn(gradle.includedBuild('features').task(':cat:check'))
     dependsOn(gradle.includedBuild('features').task(':cat-api:check'))
     dependsOn(gradle.includedBuild('features').task(':entity:check'))
@@ -29,8 +30,9 @@ tasks.register('sonarqube') {
     group = 'verification'
     description = 'SonarQube all'
 
-    dependsOn(gradle.includedBuild('domain').task(':entities:sonarqube'))
     dependsOn(gradle.includedBuild('domain').task(':events:sonarqube'))
+    dependsOn(gradle.includedBuild('domain').task(':avro-events:sonarqube'))
+    dependsOn(gradle.includedBuild('domain').task(':entities:sonarqube'))
     dependsOn(gradle.includedBuild('features').task(':cat:sonarqube'))
     dependsOn(gradle.includedBuild('features').task(':cat-api:sonarqube'))
     dependsOn(gradle.includedBuild('features').task(':entity:sonarqube'))

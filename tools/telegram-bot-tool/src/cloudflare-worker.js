@@ -21,11 +21,11 @@ async function handleRequest(event) {
     const requestBody = await request.text();
     const body = JSON.parse(requestBody);
 
-    const analysedAt = new Date(body.analysed_at).toLocaleTimeString('de-DE');
+    const analysedAt = new Date(body.analysedAt).toLocaleTimeString('de-DE');
 
     const message =
 `SonarCloud at ${analysedAt}
-Project: ${body.project.key + ":" + body.project.name}
+Project[key=${body.project.key}, name=${body.project.name}]
 ${body.branch.url}
 ${body.status} in ${body.branch.name}`;
 

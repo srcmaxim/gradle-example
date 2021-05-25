@@ -37,4 +37,5 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
           ./gradlew build \
-            :aggregation:test-aggregate:check
+            :aggregation:test-aggregate:check \
+            sonarqube
