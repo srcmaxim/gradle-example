@@ -2,6 +2,7 @@ package com.example.service.cat;
 
 import com.example.domain.event.Breed;
 import com.example.domain.event.Cat;
+import java.security.SecureRandom;
 import java.util.Random;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +13,7 @@ import org.springframework.stereotype.Service;
 public class DefaultCatService implements CatService {
 
   private static final Breed[] BREEDS = Breed.values();
-  private static final Random RANDOM = new Random();
+  private static final Random RANDOM = new SecureRandom();
 
   @Override
   public Cat getCat() {
