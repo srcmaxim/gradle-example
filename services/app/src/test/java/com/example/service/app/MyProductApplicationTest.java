@@ -55,7 +55,7 @@ class MyProductApplicationTest {
 
   @Test
   @SneakyThrows
-  void main_WhenCalled_ThenAppStartsAndHandlesResponses() {
+  void main_WhenRequestCatCalled_ThenAppStartsAndHandlesResponses() {
     int statusCodeCat = CLIENT.send(REQUEST_CAT, BodyHandlers.ofString()).statusCode();
 
     assertThat(statusCodeCat).isEqualTo(200);
@@ -63,7 +63,7 @@ class MyProductApplicationTest {
 
   @Test
   @SneakyThrows
-  void main_WhenCalled_ThenAppStartsAndHandlesResponses() {
+  void main_WhenRequestEntityCalled_ThenAppStartsAndHandlesResponses() {
     int statusCodeEntity = CLIENT.send(REQUEST_ENTITY, BodyHandlers.ofString()).statusCode();
 
     assertThat(statusCodeEntity).isEqualTo(200);
