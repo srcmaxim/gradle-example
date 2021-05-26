@@ -18,12 +18,12 @@ import org.junit.jupiter.api.Test;
 
 class MyProductApplicationTest {
 
-  private static final int PORT = 1000 + new Random().nextInt(65536 - 1000);
+  private static final int PORT = 1_000 + new Random().nextInt(65_536 - 1_000);
 
   private static final HttpClient CLIENT = HttpClient.newHttpClient();
   private static final Builder REQUEST_BUILDER = HttpRequest.newBuilder()
       .version(Version.HTTP_2)
-      .timeout(Duration.of(2, ChronoUnit.MINUTES))
+      .timeout(Duration.of(1, ChronoUnit.SECONDS))
       .header("Accept", "application/json")
       .GET();
   private static final HttpRequest REQUEST_CAT = REQUEST_BUILDER
@@ -36,12 +36,14 @@ class MyProductApplicationTest {
   private static Thread APP_THREAD;
 
   @BeforeAll
+  @SneakyThrows
   static void setup() {
     String[] args = {"--server.port=" + PORT};
     APP_THREAD = new Thread(() -> MyProductApplication.main(args));
     APP_THREAD.setName("app-" + PORT);
     APP_THREAD.setDaemon(true);
     APP_THREAD.start();
+    Thread.sleep(Duration.of(10, ChronoUnit.SECONDS).toMillis());
   }
 
   @AfterAll
