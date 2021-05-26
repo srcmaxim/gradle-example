@@ -16,8 +16,9 @@ public class DefaultCatService implements CatService {
   private static final Random RANDOM = new SecureRandom();
 
   @Override
+
   public Cat getCat() {
-    int breedsNumber = RANDOM.nextInt(BREEDS.length);
+    var breedsNumber = RANDOM.nextInt(BREEDS.length);
     return new Cat(BREEDS[breedsNumber]);
   }
 

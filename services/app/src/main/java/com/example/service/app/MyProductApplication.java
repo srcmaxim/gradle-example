@@ -4,6 +4,7 @@ import com.example.service.cat.DefaultCatService;
 import com.example.service.entity.DefaultEntityService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Import;
 
 /**
@@ -14,7 +15,9 @@ import org.springframework.context.annotation.Import;
 public class MyProductApplication {
 
   public static void main(String[] args) {
-    SpringApplication.run(MyProductApplication.class, args);
+    var context = SpringApplication.run(MyProductApplication.class, args);
+    Runtime.getRuntime().addShutdownHook(
+        new Thread(() -> SpringApplication.exit(context, () -> 0)));
   }
 
 }

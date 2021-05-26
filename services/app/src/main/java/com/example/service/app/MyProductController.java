@@ -1,5 +1,6 @@
 package com.example.service.app;
 
+import com.example.domain.dto.CatDto;
 import com.example.domain.dto.EntityDto;
 import com.example.domain.entity.Entity;
 import com.example.domain.event.Cat;
@@ -21,8 +22,9 @@ public class MyProductController {
   private final EntityService entityService;
 
   @GetMapping(value = "/cat", produces = MediaType.APPLICATION_JSON_VALUE)
-  public Cat getCat() {
-    return catService.getCat();
+  public CatDto getCat() {
+    Cat cat = catService.getCat();
+    return new CatDto(cat.getBreed().name());
   }
 
   @GetMapping(value = "/entity", produces = MediaType.APPLICATION_JSON_VALUE)

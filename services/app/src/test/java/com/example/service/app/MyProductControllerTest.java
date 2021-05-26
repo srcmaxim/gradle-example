@@ -3,6 +3,7 @@ package com.example.service.app;
 import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.when;
 
+import com.example.domain.dto.CatDto;
 import com.example.domain.dto.EntityDto;
 import com.example.domain.event.Breed;
 import com.example.domain.event.Cat;
@@ -29,8 +30,8 @@ class MyProductControllerTest {
   void testGetCat() {
     when(catService.getCat()).thenReturn(new Cat(Breed.ABYSSINIAN));
 
-    Cat result = myProductController.getCat();
-    Assertions.assertEquals(new Cat(Breed.ABYSSINIAN), result);
+    CatDto result = myProductController.getCat();
+    Assertions.assertEquals(Breed.ABYSSINIAN.name(), result.getBreed());
   }
 
   @Test
