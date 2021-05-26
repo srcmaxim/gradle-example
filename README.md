@@ -226,6 +226,17 @@ There are different ways to work with the sample:
 - You may only build or import a selected component (and its dependencies).
   For example, only import the `features/cat` in the IDE.
 
+## Setup [SonarCloud](https://sonarcloud.io/)
+
+1. Create an Organization
+   1. Organization must match 
+2. Setup a Quality Profile:
+   1. Go to Administration > New Code > Number of days
+   2. Set 30 days
+3. Create Projects:
+   1. Go to Administration > Projects Management
+   2. Create Project\[name=app,key=com.example.myproduct.services:app]
+
 ## Recommended Project Structure
 
 ```yml

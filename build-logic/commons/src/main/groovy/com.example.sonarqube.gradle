@@ -2,16 +2,11 @@ plugins {
     id('org.sonarqube')
 }
 
-// Add Project to https://sonarcloud.io/
-// 1. Create organization
-// 2. Go to Administration > Projects Management
-// 3. Create Project[name=${project.name},key=${project.group}:${project.name}]
-// 4. Go to Project > Administration > New Code > Number of days
 sonarqube {
     properties {
         property 'sonar.projectKey', "${project.group}:${project.name}"
         property 'sonar.projectName', "${project.name}"
-        property 'sonar.organization', 'srcmaxim'
+        property 'sonar.organization', System.getenv('GITHUB_ACTOR')
         property 'sonar.host.url', 'https://sonarcloud.io'
         property 'sonar.coverage.jacoco.xmlReportPaths', getJacocoReport()
         property 'sonar.java.checkstyle.reportPaths', getCheckstyleReport()
