@@ -54,18 +54,17 @@ class MyProductApplicationTest {
   @Test
   @SneakyThrows
   void main_WhenCalled_ThenAppStartsAndHandlesResponses() {
-    Thread appThread = new Thread(() -> MyProductApplication.main(new String[]{}));
-    appThread.setDaemon(true);
-    appThread.start();
-    Thread.sleep(5000); // Wait for service start
-
     int statusCodeCat = CLIENT.send(REQUEST_CAT, BodyHandlers.ofString()).statusCode();
-    assertThat(statusCodeCat).isEqualTo(200);
-    int statusCodeEntity = CLIENT.send(REQUEST_ENTITY, BodyHandlers.ofString()).statusCode();
-    assertThat(statusCodeEntity).isEqualTo(200);
 
-    appThread.interrupt();
-    appThread.join();
+    assertThat(statusCodeCat).isEqualTo(200);
+  }
+
+  @Test
+  @SneakyThrows
+  void main_WhenCalled_ThenAppStartsAndHandlesResponses() {
+    int statusCodeEntity = CLIENT.send(REQUEST_ENTITY, BodyHandlers.ofString()).statusCode();
+
+    assertThat(statusCodeEntity).isEqualTo(200);
   }
 
 }
