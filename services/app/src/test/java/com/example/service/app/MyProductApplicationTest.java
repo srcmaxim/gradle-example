@@ -23,7 +23,7 @@ class MyProductApplicationTest {
   private static final HttpClient CLIENT = HttpClient.newHttpClient();
   private static final Builder REQUEST_BUILDER = HttpRequest.newBuilder()
       .version(Version.HTTP_2)
-      .timeout(Duration.of(10, ChronoUnit.SECONDS))
+      .timeout(Duration.of(2, ChronoUnit.MINUTES))
       .header("Accept", "application/json")
       .GET();
   private static final HttpRequest REQUEST_CAT = REQUEST_BUILDER
@@ -57,7 +57,7 @@ class MyProductApplicationTest {
     Thread appThread = new Thread(() -> MyProductApplication.main(new String[]{}));
     appThread.setDaemon(true);
     appThread.start();
-    Thread.sleep(3000); // Wait for service start
+    Thread.sleep(5000); // Wait for service start
 
     int statusCodeCat = CLIENT.send(REQUEST_CAT, BodyHandlers.ofString()).statusCode();
     assertThat(statusCodeCat).isEqualTo(200);
