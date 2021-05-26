@@ -6,6 +6,7 @@ plugins {
 // 1. Create organization
 // 2. Go to Administration > Projects Management
 // 3. Create Project[name=${project.name},key=${project.group}:${project.name}]
+// 4. Go to Administration > New Code > Number of days
 sonarqube {
     properties {
         property 'sonar.projectKey', "${project.group}:${project.name}"
