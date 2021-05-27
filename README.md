@@ -113,7 +113,7 @@ Telegram Bot will write to you about CI process.
   - dto
   - avro-event(generated)
   - event
-  - mapper\(depend on: entity, dto, event)
+  - mapper(depends on entity, dto, event)
 - platforms
   - plugin-platform
   - product-platform
