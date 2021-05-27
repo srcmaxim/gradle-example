@@ -208,6 +208,8 @@
 
 [![Build](https://github.com/srcmaxim/gradle-example/actions/workflows/build.yml/badge.svg)](https://github.com/srcmaxim/gradle-example/actions/workflows/build.yml)
 
+[![Docker Repository on Quay](https://quay.io/repository/srcmaxim/gradle-example-app/status "Docker Repository on Quay")](https://quay.io/repository/srcmaxim/gradle-example-app)
+
 > You can open this sample inside an IDE using the [IntelliJ's Gradle import](https://www.jetbrains.com/help/idea/gradle.html#gradle_import_project_start) or [Eclipse Buildship](https://projects.eclipse.org/projects/tools.buildship).  
 > You can add [Google CheckStyle config](build-logic/commons/src/main/resources/StyleSources.md) for your IDE.
 
