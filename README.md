@@ -2,47 +2,41 @@
 > gradle-version: 7.0  
 > java-version: 11
 
+[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=com.example.myproduct.services%3Aapp)](https://sonarcloud.io/dashboard?id=com.example.myproduct.services%3Aapp)
+
 [![Build](https://github.com/srcmaxim/gradle-example/actions/workflows/build.yml/badge.svg)](https://github.com/srcmaxim/gradle-example/actions/workflows/build.yml)
 [![Docker Repository](https://img.shields.io/badge/docker-latest-brightgreen)](https://quay.io/repository/srcmaxim/gradle-example-app?tab=tags)
 
 - com.example.myproduct.domain:avro-events  
-  [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.domain:avro-events&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=com.example.myproduct.domain:avro-events)
-  [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.domain:avro-events&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=com.example.myproduct.domain:avro-events)
+  [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.domain:avro-events&metric=alert_status)](https://sonarcloud.io/dashboard?id=com.example.myproduct.domain:avro-events)
   [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.domain:avro-events&metric=bugs)](https://sonarcloud.io/dashboard?id=com.example.myproduct.domain:avro-events)
   [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.domain:avro-events&metric=code_smells)](https://sonarcloud.io/dashboard?id=com.example.myproduct.domain:avro-events)
 - com.example.myproduct.domain:events  
-  [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.domain:events&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=com.example.myproduct.domain:events)
-  [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.domain:events&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=com.example.myproduct.domain:events)
+  [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.domain:events&metric=alert_status)](https://sonarcloud.io/dashboard?id=com.example.myproduct.domain:events)
   [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.domain:events&metric=bugs)](https://sonarcloud.io/dashboard?id=com.example.myproduct.domain:events)
   [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.domain:events&metric=code_smells)](https://sonarcloud.io/dashboard?id=com.example.myproduct.domain:events)
 - com.example.myproduct.domain:entities  
-  [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.domain:entities&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=com.example.myproduct.domain:entities)
-  [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.domain:entities&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=com.example.myproduct.domain:entities)
+  [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.domain:entities&metric=alert_status)](https://sonarcloud.io/dashboard?id=com.example.myproduct.domain:entities)
   [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.domain:entities&metric=bugs)](https://sonarcloud.io/dashboard?id=com.example.myproduct.domain:entities)
   [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.domain:entities&metric=code_smells)](https://sonarcloud.io/dashboard?id=com.example.myproduct.domain:entities)
 - com.example.myproduct.features:cat  
-  [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.features:cat&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=com.example.myproduct.features:cat)
-  [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.features:cat&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=com.example.myproduct.features:cat)
+  [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.features:cat&metric=alert_status)](https://sonarcloud.io/dashboard?id=com.example.myproduct.features:cat)
   [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.features:cat&metric=bugs)](https://sonarcloud.io/dashboard?id=com.example.myproduct.features:cat)
   [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.features:cat&metric=code_smells)](https://sonarcloud.io/dashboard?id=com.example.myproduct.features:cat)
 - com.example.myproduct.features:cat-api  
-  [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.features:cat-api&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=com.example.myproduct.features:cat-api)
-  [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.features:cat-api&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=com.example.myproduct.features:cat-api)
+  [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.features:cat-api&metric=alert_status)](https://sonarcloud.io/dashboard?id=com.example.myproduct.features:cat-api)
   [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.features:cat-api&metric=bugs)](https://sonarcloud.io/dashboard?id=com.example.myproduct.features:cat-api)
   [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.features:cat-api&metric=code_smells)](https://sonarcloud.io/dashboard?id=com.example.myproduct.features:cat-api)
 - com.example.myproduct.features:entity  
-  [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.features:entity&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=com.example.myproduct.features:entity)
-  [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.features:entity&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=com.example.myproduct.features:entity)
+  [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.features:entity&metric=alert_status)](https://sonarcloud.io/dashboard?id=com.example.myproduct.features:entity)
   [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.features:entity&metric=bugs)](https://sonarcloud.io/dashboard?id=com.example.myproduct.features:entity)
   [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.features:entity&metric=code_smells)](https://sonarcloud.io/dashboard?id=com.example.myproduct.features:entity)
 - com.example.myproduct.features:entity-api  
-  [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.features:entity-api&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=com.example.myproduct.features:entity-api)
-  [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.features:entity-api&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=com.example.myproduct.features:entity-api)
+  [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.features:entity-api&metric=alert_status)](https://sonarcloud.io/dashboard?id=com.example.myproduct.features:entity-api)
   [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.features:entity-api&metric=bugs)](https://sonarcloud.io/dashboard?id=com.example.myproduct.features:entity-api)
   [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.features:entity-api&metric=code_smells)](https://sonarcloud.io/dashboard?id=com.example.myproduct.features:entity-api)
 - com.example.myproduct.services:app  
-  [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.services:app&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=com.example.myproduct.services:app)
-  [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.services:app&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=com.example.myproduct.services:app)
+  [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.services:app&metric=alert_status)](https://sonarcloud.io/dashboard?id=com.example.myproduct.services:app)
   [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.services:app&metric=bugs)](https://sonarcloud.io/dashboard?id=com.example.myproduct.services:app)
   [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.services:app&metric=code_smells)](https://sonarcloud.io/dashboard?id=com.example.myproduct.services:app)
   
