@@ -308,14 +308,3 @@ Telegram Bot will write to you about CI process.
 |Run linter report|`./gradlew :aggregation:test-aggregate:linterReport`
 |Run code coverage <br /> and linter reports|`./gradlew :aggregation:test-aggregate:check`
 |Clean all|`./gradlew clean`
-
-## Modules:
-
-- com.example.myproduct.services:app
-- com.example.myproduct.domain:avro-events
-- com.example.myproduct.features:cat
-- com.example.myproduct.features:cat-api
-- com.example.myproduct.domain:entities
-- com.example.myproduct.features:entity
-- com.example.myproduct.features:entity-api
-- com.example.myproduct.domain:events
