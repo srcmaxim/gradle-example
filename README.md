@@ -2,213 +2,50 @@
 > gradle-version: 7.0  
 > java-version: 11
 
-[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-orange.svg)](https://sonarcloud.io/dashboard?id=srcmaxim-gradle-example)  
-<table style="width:100%">
-  <tr>
-    <td>
-      <a href="https://sonarcloud.io/dashboard?id=com.example.myproduct.domain:events" rel="nofollow">
-        com.example.myproduct.domain:events
-      </a>
-    </td>
-    <td>
-      <a href="https://sonarcloud.io/dashboard?id=com.example.myproduct.domain:events" rel="nofollow"><img
-            src="https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.domain:events&metric=sqale_rating"
-            alt="Maintainability Rating" style="max-width:100%;">
-      </a>
-      <a href="https://sonarcloud.io/dashboard?id=com.example.myproduct.domain:events" rel="nofollow"><img
-            src="https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.domain:events&metric=reliability_rating"
-            alt="Reliability Rating" style="max-width:100%;">
-      </a>
-      <a href="https://sonarcloud.io/dashboard?id=com.example.myproduct.domain:events" rel="nofollow"><img
-            src="https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.domain:events&metric=bugs"
-            alt="Bugs" style="max-width:100%;">
-      </a>
-      <a href="https://sonarcloud.io/dashboard?id=com.example.myproduct.domain:events" rel="nofollow"><img
-            src="https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.domain:events&metric=code_smells"
-            alt="Code Smells" style="max-width:100%;">
-      </a>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <a href="https://sonarcloud.io/dashboard?id=com.example.myproduct.domain:avro-events" rel="nofollow">
-        com.example.myproduct.domain:avro-events
-      </a>
-    </td>
-    <td>
-      <a href="https://sonarcloud.io/dashboard?id=com.example.myproduct.domain:avro-events" rel="nofollow"><img
-          src="https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.domain:avro-events&metric=sqale_rating"
-          alt="Maintainability Rating" style="max-width:100%;">
-      </a>
-      <a href="https://sonarcloud.io/dashboard?id=com.example.myproduct.domain:avro-events" rel="nofollow"><img
-          src="https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.domain:avro-events&metric=reliability_rating"
-          alt="Reliability Rating" style="max-width:100%;">
-      </a>
-      <a href="https://sonarcloud.io/dashboard?id=com.example.myproduct.domain:avro-events" rel="nofollow"><img
-          src="https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.domain:avro-events&metric=bugs"
-          alt="Bugs" style="max-width:100%;">
-      </a>
-      <a href="https://sonarcloud.io/dashboard?id=com.example.myproduct.domain:avro-events" rel="nofollow"><img
-          src="https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.domain:avro-events&metric=code_smells"
-          alt="Code Smells" style="max-width:100%;">
-      </a>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <a href="https://sonarcloud.io/dashboard?id=com.example.myproduct.domain:entities" rel="nofollow">
-        com.example.myproduct.domain:entities
-      </a>
-    </td>
-    <td>
-      <a href="https://sonarcloud.io/dashboard?id=com.example.myproduct.domain:entities" rel="nofollow"><img
-          src="https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.domain:entities&metric=sqale_rating"
-          alt="Maintainability Rating" style="max-width:100%;">
-      </a>
-      <a href="https://sonarcloud.io/dashboard?id=com.example.myproduct.domain:entities" rel="nofollow"><img
-          src="https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.domain:entities&metric=reliability_rating"
-          alt="Reliability Rating" style="max-width:100%;">
-      </a>
-      <a href="https://sonarcloud.io/dashboard?id=com.example.myproduct.domain:entities" rel="nofollow"><img
-          src="https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.domain:entities&metric=bugs"
-          alt="Bugs" style="max-width:100%;">
-      </a>
-      <a href="https://sonarcloud.io/dashboard?id=com.example.myproduct.domain:entities" rel="nofollow"><img
-          src="https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.domain:entities&metric=code_smells"
-          alt="Code Smells" style="max-width:100%;">
-      </a>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <a href="https://sonarcloud.io/dashboard?id=com.example.myproduct.features:cat" rel="nofollow">
-        com.example.myproduct.features:cat
-      </a>
-    </td>
-    <td>
-      <a href="https://sonarcloud.io/dashboard?id=com.example.myproduct.features:cat" rel="nofollow"><img
-          src="https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.features:cat&metric=sqale_rating"
-          alt="Maintainability Rating" style="max-width:100%;">
-      </a>
-      <a href="https://sonarcloud.io/dashboard?id=com.example.myproduct.features:cat" rel="nofollow"><img
-          src="https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.features:cat&metric=reliability_rating"
-          alt="Reliability Rating" style="max-width:100%;">
-      </a>
-      <a href="https://sonarcloud.io/dashboard?id=com.example.myproduct.features:cat" rel="nofollow"><img
-          src="https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.features:cat&metric=bugs"
-          alt="Bugs" style="max-width:100%;">
-      </a>
-      <a href="https://sonarcloud.io/dashboard?id=com.example.myproduct.features:cat" rel="nofollow"><img
-          src="https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.features:cat&metric=code_smells"
-          alt="Code Smells" style="max-width:100%;">
-      </a>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <a href="https://sonarcloud.io/dashboard?id=com.example.myproduct.features:cat-api" rel="nofollow">
-        com.example.myproduct.features:cat-api
-      </a>
-    </td>
-    <td>
-      <a href="https://sonarcloud.io/dashboard?id=com.example.myproduct.features:cat-api" rel="nofollow"><img
-          src="https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.features:cat-api&metric=sqale_rating"
-          alt="Maintainability Rating" style="max-width:100%;">
-      </a>
-      <a href="https://sonarcloud.io/dashboard?id=com.example.myproduct.features:cat-api" rel="nofollow"><img
-          src="https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.features:cat-api&metric=reliability_rating"
-          alt="Reliability Rating" style="max-width:100%;">
-      </a>
-      <a href="https://sonarcloud.io/dashboard?id=com.example.myproduct.features:cat-api" rel="nofollow"><img
-          src="https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.features:cat-api&metric=bugs"
-          alt="Bugs" style="max-width:100%;">
-      </a>
-      <a href="https://sonarcloud.io/dashboard?id=com.example.myproduct.features:cat-api" rel="nofollow"><img
-          src="https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.features:cat-api&metric=code_smells"
-          alt="Code Smells" style="max-width:100%;">
-      </a>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <a href="https://sonarcloud.io/dashboard?id=com.example.myproduct.features:entity" rel="nofollow">
-        com.example.myproduct.features:entity
-      </a>
-    </td>
-    <td>
-      <a href="https://sonarcloud.io/dashboard?id=com.example.myproduct.features:entity" rel="nofollow"><img
-          src="https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.features:entity&metric=sqale_rating"
-          alt="Maintainability Rating" style="max-width:100%;">
-      </a>
-      <a href="https://sonarcloud.io/dashboard?id=com.example.myproduct.features:entity" rel="nofollow"><img
-          src="https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.features:entity&metric=reliability_rating"
-          alt="Reliability Rating" style="max-width:100%;">
-      </a>
-      <a href="https://sonarcloud.io/dashboard?id=com.example.myproduct.features:entity" rel="nofollow"><img
-          src="https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.features:entity&metric=bugs"
-          alt="Bugs" style="max-width:100%;">
-      </a>
-      <a href="https://sonarcloud.io/dashboard?id=com.example.myproduct.features:entity" rel="nofollow"><img
-          src="https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.features:entity&metric=code_smells"
-          alt="Code Smells" style="max-width:100%;">
-      </a>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <a href="https://sonarcloud.io/dashboard?id=com.example.myproduct.features:entity-api" rel="nofollow">
-        com.example.myproduct.features:entity-api
-      </a>
-    </td>
-    <td>
-      <a href="https://sonarcloud.io/dashboard?id=com.example.myproduct.features:entity-api" rel="nofollow"><img
-          src="https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.features:entity-api&metric=sqale_rating"
-          alt="Maintainability Rating" style="max-width:100%;">
-      </a>
-      <a href="https://sonarcloud.io/dashboard?id=com.example.myproduct.features:entity-api" rel="nofollow"><img
-          src="https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.features:entity-api&metric=reliability_rating"
-          alt="Reliability Rating" style="max-width:100%;">
-      </a>
-      <a href="https://sonarcloud.io/dashboard?id=com.example.myproduct.features:entity-api" rel="nofollow"><img
-          src="https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.features:entity-api&metric=bugs"
-          alt="Bugs" style="max-width:100%;">
-      </a>
-      <a href="https://sonarcloud.io/dashboard?id=com.example.myproduct.features:entity-api" rel="nofollow"><img
-          src="https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.features:entity-api&metric=code_smells"
-          alt="Code Smells" style="max-width:100%;">
-      </a>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <a href="https://sonarcloud.io/dashboard?id=com.example.myproduct.services:app" rel="nofollow">
-        com.example.myproduct.services:app
-      </a>
-    </td>
-    <td>
-      <a href="https://sonarcloud.io/dashboard?id=com.example.myproduct.services:app" rel="nofollow"><img
-          src="https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.services:app&metric=sqale_rating"
-          alt="Maintainability Rating" style="max-width:100%;">
-      </a>
-      <a href="https://sonarcloud.io/dashboard?id=com.example.myproduct.services:app" rel="nofollow"><img
-          src="https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.services:app&metric=reliability_rating"
-          alt="Reliability Rating" style="max-width:100%;">
-      </a>
-      <a href="https://sonarcloud.io/dashboard?id=com.example.myproduct.services:app" rel="nofollow"><img
-          src="https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.services:app&metric=bugs"
-          alt="Bugs" style="max-width:100%;">
-      </a>
-      <a href="https://sonarcloud.io/dashboard?id=com.example.myproduct.services:app" rel="nofollow"><img
-          src="https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.services:app&metric=code_smells"
-          alt="Code Smells" style="max-width:100%;">
-      </a>
-    </td>
-  </tr>
-</table>
-
 [![Build](https://github.com/srcmaxim/gradle-example/actions/workflows/build.yml/badge.svg)](https://github.com/srcmaxim/gradle-example/actions/workflows/build.yml)
+[![Docker Repository](https://img.shields.io/badge/docker-latest-brightgreen)](https://quay.io/repository/srcmaxim/gradle-example-app?tab=tags)
 
-[![Docker Repository on Quay](https://quay.io/repository/srcmaxim/gradle-example-app/status "Docker Repository on Quay")](https://quay.io/repository/srcmaxim/gradle-example-app)
+- com.example.myproduct.domain:avro-events  
+  [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.domain:avro-events&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=com.example.myproduct.domain:avro-events)
+  [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.domain:avro-events&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=com.example.myproduct.domain:avro-events)
+  [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.domain:avro-events&metric=bugs)](https://sonarcloud.io/dashboard?id=com.example.myproduct.domain:avro-events)
+  [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.domain:avro-events&metric=code_smells)](https://sonarcloud.io/dashboard?id=com.example.myproduct.domain:avro-events)
+- com.example.myproduct.domain:events  
+  [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.domain:events&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=com.example.myproduct.domain:events)
+  [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.domain:events&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=com.example.myproduct.domain:events)
+  [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.domain:events&metric=bugs)](https://sonarcloud.io/dashboard?id=com.example.myproduct.domain:events)
+  [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.domain:events&metric=code_smells)](https://sonarcloud.io/dashboard?id=com.example.myproduct.domain:events)
+- com.example.myproduct.domain:entities  
+  [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.domain:entities&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=com.example.myproduct.domain:entities)
+  [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.domain:entities&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=com.example.myproduct.domain:entities)
+  [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.domain:entities&metric=bugs)](https://sonarcloud.io/dashboard?id=com.example.myproduct.domain:entities)
+  [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.domain:entities&metric=code_smells)](https://sonarcloud.io/dashboard?id=com.example.myproduct.domain:entities)
+- com.example.myproduct.features:cat  
+  [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.features:cat&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=com.example.myproduct.features:cat)
+  [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.features:cat&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=com.example.myproduct.features:cat)
+  [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.features:cat&metric=bugs)](https://sonarcloud.io/dashboard?id=com.example.myproduct.features:cat)
+  [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.features:cat&metric=code_smells)](https://sonarcloud.io/dashboard?id=com.example.myproduct.features:cat)
+- com.example.myproduct.features:cat-api  
+  [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.features:cat-api&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=com.example.myproduct.features:cat-api)
+  [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.features:cat-api&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=com.example.myproduct.features:cat-api)
+  [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.features:cat-api&metric=bugs)](https://sonarcloud.io/dashboard?id=com.example.myproduct.features:cat-api)
+  [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.features:cat-api&metric=code_smells)](https://sonarcloud.io/dashboard?id=com.example.myproduct.features:cat-api)
+- com.example.myproduct.features:entity  
+  [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.features:entity&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=com.example.myproduct.features:entity)
+  [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.features:entity&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=com.example.myproduct.features:entity)
+  [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.features:entity&metric=bugs)](https://sonarcloud.io/dashboard?id=com.example.myproduct.features:entity)
+  [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.features:entity&metric=code_smells)](https://sonarcloud.io/dashboard?id=com.example.myproduct.features:entity)
+- com.example.myproduct.features:entity-api  
+  [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.features:entity-api&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=com.example.myproduct.features:entity-api)
+  [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.features:entity-api&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=com.example.myproduct.features:entity-api)
+  [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.features:entity-api&metric=bugs)](https://sonarcloud.io/dashboard?id=com.example.myproduct.features:entity-api)
+  [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.features:entity-api&metric=code_smells)](https://sonarcloud.io/dashboard?id=com.example.myproduct.features:entity-api)
+- com.example.myproduct.services:app  
+  [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.services:app&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=com.example.myproduct.services:app)
+  [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.services:app&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=com.example.myproduct.services:app)
+  [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.services:app&metric=bugs)](https://sonarcloud.io/dashboard?id=com.example.myproduct.services:app)
+  [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.services:app&metric=code_smells)](https://sonarcloud.io/dashboard?id=com.example.myproduct.services:app)
+  
 
 > You can open this sample inside an IDE using the [IntelliJ's Gradle import](https://www.jetbrains.com/help/idea/gradle.html#gradle_import_project_start) or [Eclipse Buildship](https://projects.eclipse.org/projects/tools.buildship).  
 > You can add [Google CheckStyle config](build-logic/commons/src/main/resources/StyleSources.md) for your IDE.
@@ -244,7 +81,7 @@ There are different ways to work with the sample:
 
 1. Create repository for app: gradle-example-app
 2. Create User Robot Account with repository write access
-3. Add Robot Account DOCKER_USER, DOCKER_TOKEN to GitHub security
+3. Add Robot Account DOCKER_USER, DOCKER_TOKEN to GitHub Security
     
 ## Setup CI notifications with [Telegram Bot](https://telegram.org/blog/bot-revolution) and [CloudFlare Workers](https://workers.cloudflare.com/)
 
@@ -304,7 +141,8 @@ Telegram Bot will write to you about CI process.
 |Run app|`./gradlew :services:app:run`
 |Build app| `./gradlew :services:app:build`
 |Test app|`./gradlew :features:cat:test --continuous`
-|Run code coverage <br /> report|`./gradlew :aggregation:test-aggregate:codeCoverageReport`
 |Run linter report|`./gradlew :aggregation:test-aggregate:linterReport`
-|Run code coverage <br /> and linter reports|`./gradlew :aggregation:test-aggregate:check`
+|Run coverage report|`./gradlew :aggregation:test-aggregate:codeCoverageReport`
+|Run sonar report|`./gradlew sonar`
+|Run all reports|`./gradlew :aggregation:test-aggregate:check sonar`
 |Clean all|`./gradlew clean`
