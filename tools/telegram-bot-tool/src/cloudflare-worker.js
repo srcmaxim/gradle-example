@@ -49,6 +49,21 @@ PUSH in ${branch} by ${body.sender.login}`;
     return sendMessage(message);
   }
 
+    if (method == "POST" && pathname.startsWith("/api/webhooks/quay")) {
+    const requestBody = await request.text();
+    const body = JSON.parse(requestBody);
+
+    const updatedAt = new Date().toLocaleTimeString('de-DE');
+
+    const message =
+`Quay at ${updatedAt}
+Repository: ${body.repository}
+${body.homepage}
+DOCKER_PUSH in ${body.updated_tags}`;
+
+    return sendMessage(message);
+  }
+
   return fetch("https://welcome.developers.workers.dev");
 }
 

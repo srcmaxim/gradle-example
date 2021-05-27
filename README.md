@@ -229,13 +229,32 @@ There are different ways to work with the sample:
 ## Setup [SonarCloud](https://sonarcloud.io/)
 
 1. Create an Organization
-   1. Organization must match 
+   1. Organization must match GitHub username
+   2. Add SONAR_TOKEN to GitHub security 
 2. Setup a Quality Profile:
    1. Go to Administration > New Code > Number of days
    2. Set 30 days
 3. Create Projects:
    1. Go to Administration > Projects Management
    2. Create Project\[name=app,key=com.example.myproduct.services:app]
+    
+## Setup [Quay.io](https://quay.io) Docker registry
+
+1. Create repository for app: gradle-example-app
+2. Create User Robot Account with repository write access
+3. Add Robot Account DOCKER_USER, DOCKER_TOKEN to GitHub security
+    
+## Setup CI notifications with [Telegram Bot](https://telegram.org/blog/bot-revolution) and [CloudFlare Workers](https://workers.cloudflare.com/)
+
+Telegram Bot will write to you about CI process.
+
+1. Telegram Bot
+  1. Create Telegram Bot from @BotFather bot
+  2. Generate TELEGRAM_BOT_TOKEN for your bot
+  3. Get your TELEGRAM_USER_ID from @UserIdInfoBot
+2. CloudFlare Workers
+  1. Create Worker with code provided in /tools/telegram-bot-tool/src/cloudflare-worker.js
+  2. Add TELEGRAM_BOT_TOKEN, TELEGRAM_USER_ID as Environment Variables
 
 ## Recommended Project Structure
 

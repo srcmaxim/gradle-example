@@ -40,3 +40,17 @@ jobs:
           ./gradlew build \
             :aggregation:test-aggregate:check \
             sonarqube
+      - name: Deploy and push services
+        env:
+          DOCKER_USER: ${{ secrets.DOCKER_USER }}
+          DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
+          GITHUB_ACTOR: ${{ github.actor }}
+        run: |
+          docker login -u=$DOCKER_USER -p=$DOCKER_TOKEN quay.io
+          SERVICE=app
+          ./gradlew :services:${SERVICE}:build
+          docker build \
+            --build-arg JAR_FILE=${SERVICE}/build/libs/*.jar \
+            -t quay.io/${GITHUB_ACTOR}/gradle-example-${SERVICE} \
+            services
+          docker push quay.io/${GITHUB_ACTOR}/gradle-example-${SERVICE}
