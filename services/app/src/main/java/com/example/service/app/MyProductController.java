@@ -3,7 +3,6 @@ package com.example.service.app;
 import com.example.domain.dto.CatDto;
 import com.example.domain.dto.EntityDto;
 import com.example.domain.entity.Entity;
-import com.example.domain.event.Cat;
 import com.example.service.cat.CatService;
 import com.example.service.entity.EntityService;
 import lombok.AllArgsConstructor;
