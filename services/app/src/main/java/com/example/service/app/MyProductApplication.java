@@ -4,7 +4,6 @@ import com.example.service.cat.DefaultCatService;
 import com.example.service.entity.DefaultEntityService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Import;
 
 /**
@@ -16,6 +15,7 @@ public class MyProductApplication {
 
   /**
    * Starts Spring Boot application.
+   *
    * @param args Spring arguments for app
    */
   public static void main(String[] args) {

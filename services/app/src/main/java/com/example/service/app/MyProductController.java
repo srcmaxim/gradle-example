@@ -23,7 +23,7 @@ public class MyProductController {
 
   @GetMapping(value = "/cat", produces = MediaType.APPLICATION_JSON_VALUE)
   public CatDto getCat() {
-    Cat cat = catService.getCat();
+    var cat = catService.getCat();
     return new CatDto(cat.getBreed().name());
   }
 
