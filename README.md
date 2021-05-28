@@ -80,14 +80,23 @@ There are different ways to work with the sample:
 ## Build in Docker
 
 Run build with Java 11:
+
 ```
 docker build -f services/Dockerfile.build -t gradle-example-app .
-docker run -p80:8080 gradle-example-app
+docker run -p80:8080 -t -i gradle-example-app # Use CTRL+C to close
+curl -w "\n" http://localhost/cat
+curl -w "\n" http://localhost/entity
+hey -c 12 -n 200 -z 30s http://localhost/cat # Optional load testing
 ```
+
 Run build with Java 16:
+
 ```
 docker build -f services/Dockerfile.build-java16 -t gradle-example-app:java16 .
-docker run -p80:8080 gradle-example-app:java16
+docker run -p80:8080 -t -i gradle-example-app:java16 # Use CTRL+C to close
+curl -w "\n" http://localhost/cat
+curl -w "\n" http://localhost/entity
+hey -c 12 -n 200 -z 30s http://localhost/cat # Optional load testing
 ```
 
 ## Build in [Quay.io](https://quay.io) Docker registry
