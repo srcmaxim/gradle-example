@@ -89,6 +89,21 @@ Run build with Java 16:
 docker build -f services/Dockerfile.build-java16 -t gradle-example-app:java16 .
 docker run -p80:8080 gradle-example-app:java16
 ```
+
+## Build in [Quay.io](https://quay.io) Docker registry
+
+For Java 16 build specify:
+
+1. Dockerfile location: /services/Dockerfile.build-java16
+2. Context location: /
+3. Branches/tags: ALL
+4. Pull robot: (use your robot account here)
+5. Tagging options:
+   - branch/tag name
+   - latest if default branch
+   - java-16-${parsed_ref.branch}-${commit_info.short_sha}
+   - java-16-${parsed_ref.branch}
+   - java-16-${commit_info.short_sha}
     
 ## Setup CI notifications with [Telegram Bot](https://telegram.org/blog/bot-revolution) and [CloudFlare Workers](https://workers.cloudflare.com/)
 
