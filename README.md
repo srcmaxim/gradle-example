@@ -1,6 +1,6 @@
 # Gradle Example
 > gradle-version: 7.0  
-> java-version: 11 or 16 (with build in Docker)
+> java-version: 11 or 16
 
 [![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=com.example.myproduct.services%3Aapp)](https://sonarcloud.io/dashboard?id=com.example.myproduct.services%3Aapp)
 
@@ -116,15 +116,17 @@ For Java 16 build specify:
     
 ## Setup CI notifications with [Telegram Bot](https://telegram.org/blog/bot-revolution) and [CloudFlare Workers](https://workers.cloudflare.com/)
 
-Telegram Bot will write to you about CI process.
+Telegram Bot for CI notifications.
 
 1. Telegram Bot
    - Create Telegram Bot from @BotFather bot
    - Generate TELEGRAM_BOT_TOKEN for your bot
    - Get your TELEGRAM_USER_ID from @UserIdInfoBot
 2. CloudFlare Workers
-   - Create Worker with code provided in /tools/telegram-bot-tool/src/cloudflare-worker.js
-   - Add TELEGRAM_BOT_TOKEN, TELEGRAM_USER_ID as Environment Variables
+   - Create Worker with code provided in [index.js](/tools/telegram-bot-tool/index.js)
+   - Add secrets: TELEGRAM_USER_ID, TELEGRAM_BOT_TOKEN
+
+For additional information refer to telegram-bot [README.md](/tools/telegram-bot-tool/README.md)
 
 ## Recommended Project Structure
 

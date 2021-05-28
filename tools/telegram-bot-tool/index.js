@@ -17,6 +17,10 @@ async function handleRequest(event) {
   const { pathname } = new URL(request.url);
   const method = request.method;
 
+  if (method == "GET" && pathname.startsWith("/health")) {
+    return new Response("👌", { status: 200 });
+  }
+
   if (method == "POST" && pathname.startsWith("/api/webhooks/sonar-cloud")) {
     const requestBody = await request.text();
     const body = JSON.parse(requestBody);
