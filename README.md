@@ -81,11 +81,13 @@ There are different ways to work with the sample:
 
 Run build with Java 11:
 ```
-docker build -f services/Dockerfile.build -t quay.io/srcmaxim/gradle-example .
+docker build -f services/Dockerfile.build -t gradle-example-app .
+docker run -p80:8080 gradle-example-app
 ```
 Run build with Java 16:
 ```
-docker build -f services/Dockerfile.build-java16 -t quay.io/srcmaxim/gradle-example:java16 .
+docker build -f services/Dockerfile.build-java16 -t gradle-example-app:java16 .
+docker run -p80:8080 gradle-example-app:java16
 ```
     
 ## Setup CI notifications with [Telegram Bot](https://telegram.org/blog/bot-revolution) and [CloudFlare Workers](https://workers.cloudflare.com/)
