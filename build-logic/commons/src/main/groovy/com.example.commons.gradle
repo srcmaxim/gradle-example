@@ -7,9 +7,14 @@ plugins {
 
 group = 'com.example.myproduct'
 
+if(JavaVersion.current() != JavaVersion.VERSION_11
+        && JavaVersion.current() != JavaVersion.VERSION_16){
+    throw new GradleException("Build requires Java version 11 or 16")
+}
+
 java {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
+    sourceCompatibility = JavaVersion.current()
+    targetCompatibility = JavaVersion.current()
 }
 
 dependencies {

@@ -1,6 +1,6 @@
 # Gradle Example
 > gradle-version: 7.0  
-> java-version: 11
+> java-version: 11 or 16 (with build in Docker)
 
 [![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=com.example.myproduct.services%3Aapp)](https://sonarcloud.io/dashboard?id=com.example.myproduct.services%3Aapp)
 
@@ -62,32 +62,43 @@ There are different ways to work with the sample:
 ## Setup [SonarCloud](https://sonarcloud.io/)
 
 1. Create an Organization
-   1. Organization must match GitHub username
-   2. Add SONAR_TOKEN to GitHub security 
+   - Organization must match GitHub username
+   - Add SONAR_TOKEN to GitHub security 
 2. Setup a Quality Profile:
-   1. Go to Administration > New Code > Number of days
-   2. Set 30 days
+   - Go to Administration > New Code > Number of days
+   - Set 30 days
 3. Create Projects:
-   1. Go to Administration > Projects Management
-   2. Create Project\[name=app,key=com.example.myproduct.services:app]
+   - Go to Administration > Projects Management
+   - Create Project\[name=app,key=com.example.myproduct.services:app]
     
 ## Setup [Quay.io](https://quay.io) Docker registry
 
 1. Create repository for app: gradle-example-app
 2. Create User Robot Account with repository write access
 3. Add Robot Account DOCKER_USER, DOCKER_TOKEN to GitHub Security
+
+## Build in Docker
+
+Run build with Java 11:
+```
+docker build -f services/Dockerfile.build -t quay.io/srcmaxim/gradle-example .
+```
+Run build with Java 16:
+```
+docker build -f services/Dockerfile.build-java16 -t quay.io/srcmaxim/gradle-example:java16 .
+```
     
 ## Setup CI notifications with [Telegram Bot](https://telegram.org/blog/bot-revolution) and [CloudFlare Workers](https://workers.cloudflare.com/)
 
 Telegram Bot will write to you about CI process.
 
 1. Telegram Bot
-  1. Create Telegram Bot from @BotFather bot
-  2. Generate TELEGRAM_BOT_TOKEN for your bot
-  3. Get your TELEGRAM_USER_ID from @UserIdInfoBot
+   - Create Telegram Bot from @BotFather bot
+   - Generate TELEGRAM_BOT_TOKEN for your bot
+   - Get your TELEGRAM_USER_ID from @UserIdInfoBot
 2. CloudFlare Workers
-  1. Create Worker with code provided in /tools/telegram-bot-tool/src/cloudflare-worker.js
-  2. Add TELEGRAM_BOT_TOKEN, TELEGRAM_USER_ID as Environment Variables
+   - Create Worker with code provided in /tools/telegram-bot-tool/src/cloudflare-worker.js
+   - Add TELEGRAM_BOT_TOKEN, TELEGRAM_USER_ID as Environment Variables
 
 ## Recommended Project Structure
 
