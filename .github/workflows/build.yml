@@ -39,7 +39,7 @@ jobs:
         run: |
           ./gradlew build \
             :aggregation:test-aggregate:check \
-            sonarqube
+            sonarqube --info
       - name: Deploy and push services
         env:
           DOCKER_USER: ${{ secrets.DOCKER_USER }}
