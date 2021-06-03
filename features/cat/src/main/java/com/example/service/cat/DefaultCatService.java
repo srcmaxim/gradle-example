@@ -2,10 +2,9 @@ package com.example.service.cat;
 
 import com.example.domain.event.Breed;
 import com.example.domain.event.Cat;
+import com.example.service.cat.api.CatService;
 import java.security.SecureRandom;
 import java.util.Random;
-
-import com.example.service.cat.api.CatService;
 import org.springframework.stereotype.Service;
 
 /**
