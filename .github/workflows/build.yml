@@ -50,6 +50,6 @@ jobs:
           echo $DOCKER_TOKEN | docker login --username $DOCKER_USER --password-stdin quay.io
           TAG=quay.io/${GITHUB_ACTOR}/gradle-example-${SERVICE}
           docker build \
-            -f services/${SERVICE}/src/docker/Dockerfile
-            -t $TAG "services/${SERVICE}"
+            -f services/${SERVICE}/src/docker/Dockerfile \
+            -t $TAG services/${SERVICE}
           docker push $TAG
