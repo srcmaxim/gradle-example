@@ -1,5 +1,5 @@
 # Gradle Example
-> gradle-version: 7.0  
+> gradle-version: 7.0.2  
 > java-version: 16
 
 [![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=com.example.myproduct.services%3Aapp)](https://sonarcloud.io/dashboard?id=com.example.myproduct.services%3Aapp)
