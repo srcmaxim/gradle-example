@@ -1,2 +1,3 @@
 # Ignore Avro generated classes
 src/main/java
+!src/main/java/module-info.java
