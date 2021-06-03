@@ -46,7 +46,7 @@ jobs:
           DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
           GITHUB_ACTOR: ${{ github.actor }}
         run: |
-          cat $DOCKER_TOKEN | docker login --username $DOCKER_USER --password-stdin quay.io
+          echo $DOCKER_TOKEN | docker login --username $DOCKER_USER --password-stdin quay.io
           SERVICE=app
           TAG=quay.io/${GITHUB_ACTOR}/gradle-example-${SERVICE}
           docker build \
