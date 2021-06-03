@@ -2,6 +2,7 @@ package com.example.service.entity;
 
 import com.example.domain.dto.EntityDto;
 import com.example.domain.entity.Entity;
+import com.example.service.entity.api.EntityService;
 import org.springframework.stereotype.Service;
 
 /**

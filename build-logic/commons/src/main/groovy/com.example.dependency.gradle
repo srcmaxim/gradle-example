@@ -1,0 +1,28 @@
+plugins {
+    id('java-base')
+}
+
+configurations.all {
+    resolutionStrategy {
+        failOnVersionConflict()
+    }
+}
+
+configurations.all {
+    resolutionStrategy.eachDependency {
+        switch (requested.group) {
+            case 'org.slf4j':
+                useVersion '1.7.30'
+                break
+            case 'com.fasterxml.jackson.core':
+                useVersion '2.12.3'
+                break
+            case 'org.junit.jupiter':
+                useVersion '5.7.2'
+                break
+            case 'net.bytebuddy':
+                useVersion '1.10.22'
+                break
+        }
+    }
+}

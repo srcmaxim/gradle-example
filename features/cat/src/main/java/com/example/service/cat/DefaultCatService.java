@@ -4,6 +4,8 @@ import com.example.domain.event.Breed;
 import com.example.domain.event.Cat;
 import java.security.SecureRandom;
 import java.util.Random;
+
+import com.example.service.cat.api.CatService;
 import org.springframework.stereotype.Service;
 
 /**

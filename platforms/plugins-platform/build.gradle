@@ -6,7 +6,7 @@ group = 'com.example.platform'
 
 dependencies {
     constraints {
-        api('org.springframework.boot:org.springframework.boot.gradle.plugin:2.4.0')
+        api('org.springframework.boot:org.springframework.boot.gradle.plugin:2.5.0')
         api('com.github.davidmc24.gradle.plugin.avro-base:com.github.davidmc24.gradle.plugin.avro-base.gradle.plugin:1.1.0')
         api('io.freefair.lombok:io.freefair.lombok.gradle.plugin:5.3.3.3')
         api('org.sonarqube:org.sonarqube.gradle.plugin:3.2.0')

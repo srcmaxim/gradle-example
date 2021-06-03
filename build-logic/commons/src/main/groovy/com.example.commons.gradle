@@ -3,6 +3,7 @@ plugins {
     id('com.example.jacoco')
     id('com.example.checkstyle')
     id('com.example.sonarqube')
+    id('com.example.dependency')
 }
 
 group = 'com.example.myproduct'
@@ -19,7 +20,6 @@ java {
 
 dependencies {
     implementation(platform('com.example.platform:product-platform'))
-    implementation('org.apache.kafka:kafka-clients')
     implementation('org.slf4j:slf4j-api')
 
     testImplementation(platform('com.example.platform:test-platform'))

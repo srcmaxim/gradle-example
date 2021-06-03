@@ -1,6 +1,6 @@
 # Gradle Example
 > gradle-version: 7.0  
-> java-version: 11 or 16
+> java-version: 16
 
 [![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=com.example.myproduct.services%3Aapp)](https://sonarcloud.io/dashboard?id=com.example.myproduct.services%3Aapp)
 
@@ -77,22 +77,17 @@ There are different ways to work with the sample:
 2. Create User Robot Account with repository write access
 3. Add Robot Account DOCKER_USER, DOCKER_TOKEN to GitHub Security
 
+## Create Docker
+
+```
+gradlew :services:app:build
+docker build -f services/app/src/docker/Dockerfile -t gradle-example-app services/app
+```
+
 ## Build in Docker
 
-Run build with Java 11:
-
 ```
-docker build -f services/Dockerfile.build -t gradle-example-app .
-docker run -p80:8080 -t -i gradle-example-app # Use CTRL+C to close
-curl -w "\n" http://localhost/cat
-curl -w "\n" http://localhost/entity
-hey -c 12 -n 200 -z 30s http://localhost/cat # Optional load testing
-```
-
-Run build with Java 16:
-
-```
-docker build -f services/Dockerfile.build-java16 -t gradle-example-app:java16 .
+docker build -f services/app/src/docker/Dockerfile.build -t gradle-example-app .
 docker run -p80:8080 -t -i gradle-example-app:java16 # Use CTRL+C to close
 curl -w "\n" http://localhost/cat
 curl -w "\n" http://localhost/entity
@@ -103,7 +98,7 @@ hey -c 12 -n 200 -z 30s http://localhost/cat # Optional load testing
 
 For Java 16 build specify:
 
-1. Dockerfile location: /services/Dockerfile.build-java16
+1. Dockerfile location: /services/app/src/docker/Dockerfile.build
 2. Context location: /
 3. Branches/tags: ALL
 4. Pull robot: (use your robot account here)
@@ -127,6 +122,43 @@ Telegram Bot for CI notifications.
    - Add secrets: TELEGRAM_USER_ID, TELEGRAM_BOT_TOKEN
 
 For additional information refer to telegram-bot [README.md](/tools/telegram-bot-tool/README.md)
+
+## Run Project in Multipass Microk8s
+
+```
+microk8s status --wait-ready
+microk8s enable dashboard dns
+microk8s config > C:\Users\Maks\AppData\Local\MicroK8s\config
+microk8s kubectl get all --all-namespaces
+
+microk8s dashboard-proxy
+
+microk8s kubectl apply -f services/app/load-balancer.yml
+kubectl get deployments app
+
+microk8s kubectl get deployments app
+microk8s kubectl describe deployments app
+microk8s kubectl get replicasets
+microk8s kubectl describe replicasets <app-XXXXXXXX> # Describe set of pods
+microk8s kubectl logs <app-XXXXXXXX-XXXXX> # Get logs form pod
+microk8s kubectl expose deployment app --type=LoadBalancer --name=app-service 
+microk8s kubectl get services app-service
+microk8s kubectl delete service app-service
+microk8s kubectl apply -f services/app/src/kubernetes/service-node-port.yml
+microk8s kubectl get services app-service # Get port (80)
+multipass list # Get ip of vm
+
+# You can run this commands to get app responce
+sudo apt-get update && sudo apt-get -y install jq
+APP_HOST=$(multipass list --format=json | jq ".list.ipv4[0]" -r)
+APP_PORT=$(microk8s kubectl get services app-service --output=json | jq ".spec.ports[0].nodePort")
+curl -w "\n" http://$APP_HOST:$APP_PORT/cat
+
+# Run app from 
+microk8s kubectl apply -f services/app/src/kubernetes/deployment.yml
+microk8s kubectl apply -f services/app/src/kubernetes/service.yml
+
+```
 
 ## Recommended Project Structure
 

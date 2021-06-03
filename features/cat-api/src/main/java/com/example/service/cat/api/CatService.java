@@ -1,4 +1,4 @@
-package com.example.service.cat;
+package com.example.service.cat.api;
 
 import com.example.domain.event.Cat;
 
