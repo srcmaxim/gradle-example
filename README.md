@@ -88,7 +88,7 @@ docker build -f services/app/src/docker/Dockerfile -t gradle-example-app service
 
 ```
 docker build -f services/app/src/docker/Dockerfile.build -t gradle-example-app .
-docker run -p80:8080 -t -i gradle-example-app:java16 # Use CTRL+C to close
+docker run -p80:8080 -t -i gradle-example-app # Use CTRL+C to close
 curl -w "\n" http://localhost/cat
 curl -w "\n" http://localhost/entity
 hey -c 12 -n 200 -z 30s http://localhost/cat # Optional load testing
@@ -122,6 +122,12 @@ Telegram Bot for CI notifications.
    - Add secrets: TELEGRAM_USER_ID, TELEGRAM_BOT_TOKEN
 
 For additional information refer to telegram-bot [README.md](/tools/telegram-bot-tool/README.md)
+
+## Build and Run Project in Docker Compose
+
+```bash
+docker-compose -f envs/local-env/docker-compose.yml up --build
+```
 
 ## Run Project in Multipass Microk8s
 
@@ -157,6 +163,12 @@ curl -w "\n" http://$APP_HOST:$APP_PORT/cat
 # Run app from 
 microk8s kubectl apply -f services/app/src/kubernetes/deployment.yml
 microk8s kubectl apply -f services/app/src/kubernetes/service.yml
+
+```
+
+## Create HELM Chart
+
+```
 
 ```
 
