@@ -133,8 +133,8 @@ docker-compose -f envs/local-env/docker-compose.yml up --build
 
 ```
 microk8s status --wait-ready
-microk8s enable dashboard dns
-microk8s config > C:\Users\Maks\AppData\Local\MicroK8s\config
+microk8s enable dashboard dns helm3
+microk8s config > ~/.kube/config
 microk8s kubectl get all --all-namespaces
 
 microk8s dashboard-proxy
@@ -168,8 +168,14 @@ microk8s kubectl apply -f services/app/src/kubernetes/service.yml
 
 ## Create HELM Chart
 
-```
+1. Install [HELM](https://helm.sh/docs/intro/install/)
+2. HELM registry plugin
 
+```
+export HELM_EXPERIMENTAL_OCI=1
+echo $DOCKER_TOKEN | helm registry login -u $DOCKER_USER quay.io
+helm registry push --namespace $USERNAME quay.io
+helm registry install quay.io/$DOCKER_USER/nginx
 ```
 
 ## Recommended Project Structure
