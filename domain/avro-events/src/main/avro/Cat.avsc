@@ -1,8 +1,0 @@
-{
-    "name": "Cat",
-    "namespace": "com.example.domain.event",
-    "type": "record",
-    "fields" : [
-        {"name": "breed", "type": "Breed"}
-    ]
-}

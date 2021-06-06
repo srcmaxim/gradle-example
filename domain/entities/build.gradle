@@ -1,5 +1,0 @@
-plugins {
-    id('com.example.java-library')
-}
-
-group = "${group}.domain"
