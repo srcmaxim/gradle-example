@@ -1,0 +1,26 @@
+plugins {
+    id('com.example.spring-boot-application')
+}
+
+group = "${group}.services"
+
+dependencies {
+    implementation('com.example.myproduct.features:cat')
+    implementation('com.example.myproduct.features:entity')
+}
+
+java {
+    modularity.inferModulePath.set(true)
+}
+
+application {
+    // enable java modules for compile-time check
+    // mainModule = 'myproduct.services.app'
+    mainClass = 'com.example.service.app.MyProductApplication'
+}
+
+run {
+    // enable java modules for compile-time check
+    // mainModule = 'myproduct.services.app'
+    mainClass = 'com.example.service.app.MyProductApplication'
+}

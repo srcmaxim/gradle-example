@@ -1,0 +1,9 @@
+plugins {
+    id('com.example.commons')
+    id('io.freefair.lombok')
+    id('application')
+}
+
+dependencies {
+    implementation('org.springframework.boot:spring-boot-starter-web')
+}

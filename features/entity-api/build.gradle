@@ -1,0 +1,10 @@
+plugins {
+    id('com.example.java-library')
+}
+
+group = "${group}.features"
+
+dependencies {
+    api('com.example.myproduct.domain:entities')
+    api('com.example.myproduct.domain:events')
+}

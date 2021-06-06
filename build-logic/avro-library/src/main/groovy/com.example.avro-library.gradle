@@ -1,0 +1,8 @@
+plugins {
+    id('com.example.java-library')
+    id('com.github.davidmc24.gradle.plugin.avro-base')
+}
+
+dependencies {
+    implementation('org.apache.avro:avro')
+}

@@ -1,0 +1,9 @@
+version: "3.9"
+
+services:
+  app:
+    build:
+      context: ./../..
+      dockerfile: services/app/src/docker/Dockerfile.build
+    ports:
+      - "80:8080"

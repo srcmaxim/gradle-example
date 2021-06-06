@@ -1,0 +1,17 @@
+plugins {
+    id('java-platform')
+}
+
+group = 'com.example.platform'
+
+// allow the definition of dependencies to other platforms like the JUnit 5 BOM
+javaPlatform.allowDependencies()
+
+dependencies {
+    api(platform('org.junit:junit-bom:5.7.2'))
+    constraints{
+        api('org.assertj:assertj-core:3.19.0')
+        api('org.mockito:mockito-core:3.9.0')
+        api('org.mockito:mockito-junit-jupiter:3.9.0')
+    }
+}

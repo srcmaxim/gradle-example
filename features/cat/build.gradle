@@ -1,0 +1,11 @@
+plugins {
+    id('com.example.java-library')
+}
+
+group = "${group}.features"
+
+dependencies {
+    implementation('org.springframework:spring-context')
+
+    api(project(':cat-api'))
+}
