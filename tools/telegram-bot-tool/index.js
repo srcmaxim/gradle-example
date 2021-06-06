@@ -36,7 +36,7 @@ ${body.status} in ${body.branch.name}`;
     return sendMessage(message);
   }
 
-    if (method == "POST" && pathname.startsWith("/api/webhooks/github")) {
+  if (method == "POST" && pathname.startsWith("/api/webhooks/github")) {
     const requestBody = await request.text();
     const body = JSON.parse(requestBody);
 
@@ -53,7 +53,7 @@ PUSH in ${branch} by ${body.sender.login}`;
     return sendMessage(message);
   }
 
-    if (method == "POST" && pathname.startsWith("/api/webhooks/quay")) {
+  if (method == "POST" && pathname.startsWith("/api/webhooks/quay")) {
     const requestBody = await request.text();
     const body = JSON.parse(requestBody);
 
@@ -64,6 +64,23 @@ PUSH in ${branch} by ${body.sender.login}`;
 Repository: ${body.repository}
 ${body.homepage}
 DOCKER_PUSH in ${body.updated_tags}`;
+
+    return sendMessage(message);
+  }
+
+  if (method == "POST" && pathname.startsWith("/api/webhooks/artifact-hub")) {
+    const requestBody = await request.text();
+    const body = JSON.parse(requestBody);
+
+    const updatedAt = new Date().toLocaleTimeString('de-DE');
+
+    const package = body.data.package;
+
+    const message =
+`ArtifactHUB at ${updatedAt}
+Repository: ${package.name}
+${package.url}
+HELM_PUSH in ${package.version}`;
 
     return sendMessage(message);
   }
