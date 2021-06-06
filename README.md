@@ -6,6 +6,7 @@
 
 [![Build](https://github.com/srcmaxim/gradle-example/actions/workflows/build.yml/badge.svg)](https://github.com/srcmaxim/gradle-example/actions/workflows/build.yml)
 [![Docker Repository](https://img.shields.io/badge/docker-latest-brightgreen)](https://quay.io/repository/srcmaxim/gradle-example-app?tab=tags)
+[![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/gradle-example)](https://artifacthub.io/packages/search?repo=gradle-example)
 
 - com.example.myproduct.domain:avro-events  
   [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=com.example.myproduct.domain:avro-events&metric=alert_status)](https://sonarcloud.io/dashboard?id=com.example.myproduct.domain:avro-events)
@@ -129,54 +130,100 @@ For additional information refer to telegram-bot [README.md](/tools/telegram-bot
 docker-compose -f envs/local-env/docker-compose.yml up --build
 ```
 
-## Run Project in Multipass Microk8s
+## Run Project in microk8s
 
-```
-microk8s status --wait-ready
-microk8s enable dashboard dns helm3
+1. Install [microk8s](https://microk8s.io/)
+2. Deploy app
+
+```bash
+microk8s status --wait-ready 1️⃣
 microk8s config > ~/.kube/config
-microk8s kubectl get all --all-namespaces
+kubectl get all --all-namespaces
 
+microk8s enable dashboard 2️⃣
 microk8s dashboard-proxy
 
-microk8s kubectl apply -f services/app/load-balancer.yml
-kubectl get deployments app
+kubectl create namespace dev 3️⃣
+kubectl apply -f services/app/src/kubernetes/deployment.yml -n dev
+kubectl apply -f services/app/src/kubernetes/service.yml -n dev
 
-microk8s kubectl get deployments app
-microk8s kubectl describe deployments app
-microk8s kubectl get replicasets
-microk8s kubectl describe replicasets <app-XXXXXXXX> # Describe set of pods
-microk8s kubectl logs <app-XXXXXXXX-XXXXX> # Get logs form pod
-microk8s kubectl expose deployment app --type=LoadBalancer --name=app-service 
-microk8s kubectl get services app-service
-microk8s kubectl delete service app-service
-microk8s kubectl apply -f services/app/src/kubernetes/service-node-port.yml
-microk8s kubectl get services app-service # Get port (80)
-multipass list # Get ip of vm
+kubectl get deployments app 4️⃣
+kubectl describe deployments app
+kubectl get services app
+kubectl describe services app
 
-# You can run this commands to get app responce
-sudo apt-get update && sudo apt-get -y install jq
-APP_HOST=$(multipass list --format=json | jq ".list.ipv4[0]" -r)
-APP_PORT=$(microk8s kubectl get services app-service --output=json | jq ".spec.ports[0].nodePort")
-curl -w "\n" http://$APP_HOST:$APP_PORT/cat
-
-# Run app from 
-microk8s kubectl apply -f services/app/src/kubernetes/deployment.yml
-microk8s kubectl apply -f services/app/src/kubernetes/service.yml
-
+kubectl get replicasets 5️⃣
+kubectl describe replicasets <app-XXXXXXXX>
+kubectl describe pod <app-XXXXXXXX-XXXXX>
+kubectl logs <app-XXXXXXXX-XXXXX>
 ```
 
-## Create HELM Chart
+1️⃣ Setup microk8s and configure kubectl  
+2️⃣ Enable dashboard proxy  
+3️⃣ Create servicecs in dev  
+4️⃣ Describe deployment and service  
+5️⃣ Describe pod
+
+3. Get app response:
+
+```bash
+export NODE_PORT=$(kubectl get --namespace dev -o jsonpath="{.spec.ports[0].nodePort}" services gradle-example)
+export NODE_IP=$(kubectl get nodes --namespace dev -o jsonpath="{.items[0].status.addresses[0].address}")
+echo http://$NODE_IP:$NODE_PORT/cat
+echo http://$NODE_IP:$NODE_PORT/entity
+ ```
+
+## Run project with HELM
 
 1. Install [HELM](https://helm.sh/docs/intro/install/)
-2. HELM registry plugin
+2. Deploy app
 
+```bash
+git checkout --orphan gh-pages 1️⃣
+cat << EOF > index.html
+<html>
+<head>
+  <title>gradle-example charts repository</title>
+</head>
+<body>
+  <h1>gradle-example charts repository</h1>
+  <p>Add this repository</p>
+  <pre>helm repo add gradle-example https://srcmaxim.github.io/gradle-example</pre>
+</body>
+</html>
+EOF
+cat << EOF > README.md
+# gradle-example charts repository
+Add this repository
+`helm repo add gradle-example https://srcmaxim.github.io/gradle-example`
+EOF
+helm package envs/kubernetes-env/helm-chart/
+helm repo index . --url https://srcmaxim.github.io/gradle-example/
+git add gradle-example-*.tgz index.yaml
+git commit -m "Add HELM artifact gradle-example:1.0.0"
+
+helm repo add gradle-example https://srcmaxim.github.io/gradle-example/ 2️⃣
+repo list
+helm repo update
+
+kubectl create namespace dev 3️⃣
+helm install gradle-example gradle-example/gradle-example -n dev
 ```
-export HELM_EXPERIMENTAL_OCI=1
-echo $DOCKER_TOKEN | helm registry login -u $DOCKER_USER quay.io
-helm registry push --namespace $USERNAME quay.io
-helm registry install quay.io/$DOCKER_USER/nginx
-```
+
+1️⃣ Create HELM artifact `gradle-example` in [GitHub pages](https://pages.github.com/) from `gh-pages` branch  
+2️⃣ Add HELM repository  
+3️⃣ Apply HELM to kubernetes
+
+3. Add HELM repository to [ArtifactHUB](https://artifacthub.io/)
+
+4. Get app response:
+
+```bash
+export NODE_PORT=$(kubectl get --namespace dev -o jsonpath="{.spec.ports[0].nodePort}" services gradle-example)
+export NODE_IP=$(kubectl get nodes --namespace dev -o jsonpath="{.items[0].status.addresses[0].address}")
+curl -w "\n" http://$NODE_IP:$NODE_PORT/cat
+curl -w "\n" http://$NODE_IP:$NODE_PORT/entity
+ ```
 
 ## Recommended Project Structure
 
