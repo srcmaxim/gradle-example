@@ -23,7 +23,7 @@ jobs:
           TAG=${GITHUB_REF#refs/*/}
           if [[ $TAG == v*.*.* ]] ;
           then
-            TAG=$($TAG | cut -c 2-)
+            TAG=$(echo $TAG | cut -c 2-)
           fi
           echo ::set-output name=tag::$TAG
       - name: Set up JDK 16
