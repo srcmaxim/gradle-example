@@ -5,6 +5,8 @@ on:
       - main
       - develop
       - feature/*
+    tags:
+      - "v*.*.*"
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
@@ -15,6 +17,12 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+      - name: Set up version tag
+        id: vars
+        run: |
+          TAG=$(${GITHUB_REF#refs/*/} | cut -c 2-)
+          echo $TAG
+          echo ::set-output name=tag::${GITHUB_REF#refs/*/}
       - name: Set up JDK 16
         uses: actions/setup-java@v1
         with:
@@ -44,6 +52,7 @@ jobs:
         env:
           DOCKER_USER: ${{ secrets.DOCKER_USER }}
           DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
+          RELEASE_VERSION: ${{ steps.vars.outputs.tag }}
           GITHUB_ACTOR: ${{ github.actor }}
           SERVICE: app
         run: |
@@ -51,5 +60,8 @@ jobs:
           TAG=quay.io/${GITHUB_ACTOR}/gradle-example-${SERVICE}
           docker build \
             -f services/${SERVICE}/src/docker/Dockerfile \
-            -t $TAG services/${SERVICE}
-          docker push $TAG
+            -t $TAG:latest \
+            -t $TAG:$RELEASE_VERSION \
+            services/${SERVICE}
+          docker push $TAG:latest
+          docker push $TAG:$RELEASE_VERSION
