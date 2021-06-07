@@ -66,5 +66,4 @@ jobs:
             -t $TAG:latest \
             -t $TAG:$RELEASE_VERSION \
             services/${SERVICE}
-          docker push $TAG:latest
-          docker push $TAG:$RELEASE_VERSION
+          docker push $TAG --all-tags
