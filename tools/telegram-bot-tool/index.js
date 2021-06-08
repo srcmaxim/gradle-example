@@ -97,7 +97,7 @@ function parseRef(ref) {
   if (ref.startsWith(headRef)) {
     ref = ref.substring(headRef.length)
   }
-  if (versionRef.test(headRef)) {
+  if (versionRef.test(ref)) {
     ref = ref.substring(1);
   }
   return ref;
