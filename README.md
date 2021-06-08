@@ -144,8 +144,7 @@ microk8s enable dashboard 2️⃣
 microk8s dashboard-proxy
 
 kubectl create namespace dev 3️⃣
-kubectl apply -f services/app/src/kubernetes/deployment.yml -n dev
-kubectl apply -f services/app/src/kubernetes/service.yml -n dev
+kubectl apply -f envs/kubernetes-env -n dev
 
 kubectl get deployments app 4️⃣
 kubectl describe deployments app
@@ -160,7 +159,10 @@ kubectl logs <app-XXXXXXXX-XXXXX>
 
 1️⃣ Setup microk8s and configure kubectl  
 2️⃣ Enable dashboard proxy  
-3️⃣ Create servicecs in dev  
+3️⃣ Create all services in dev. To create a specific service use: 
+```bash
+kubectl apply -f services/app/src/kubernetes -n dev
+```
 4️⃣ Describe deployment and service  
 5️⃣ Describe pod
 
@@ -197,7 +199,7 @@ cat << EOF > README.md
 Add this repository
 `helm repo add gradle-example https://srcmaxim.github.io/gradle-example`
 EOF
-helm package envs/kubernetes-env/helm-chart/
+helm package envs/helm-env
 helm repo index . --url https://srcmaxim.github.io/gradle-example/
 git add gradle-example-*.tgz index.yaml
 git commit -m "Add HELM artifact gradle-example:1.0.0"
@@ -245,7 +247,7 @@ argocd login localhost:8080 --username admin --password $password --insecure
 argocd account update-password
 
 argocd app create gradle-example --repo https://github.com/srcmaxim/gradle-example.git \ 4️⃣ 
-  --path services/app/src/kubernetes --dest-server https://kubernetes.default.svc --dest-namespace dev
+  --path envs/kubernetes-env --dest-server https://kubernetes.default.svc --dest-namespace dev
 argocd app get gradle-example 5️⃣ 
 argocd app sync gradle-example 6️⃣
 ```

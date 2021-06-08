@@ -1,0 +1,46 @@
+name: Release Charts
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - "v*.*.*"
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Configure Git
+        run: |
+          git config user.name "$GITHUB_ACTOR"
+          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
+      - name: Set up version tag
+        id: vars
+        run: |
+          TAG=${GITHUB_REF#refs/*/}
+          if [[ $TAG == v*.*.* ]] ;
+          then
+            TAG=$(echo $TAG | cut -c 2-)
+          fi
+          echo ::set-output name=tag::$TAG
+      - name: Install Helm
+        uses: azure/setup-helm@v1
+        with:
+          version: v3.4.0
+      - name: Update HELM Chart version
+        env:
+          RELEASE_VERSION: ${{ steps.vars.outputs.tag }}
+        run: |
+          cat envs/helm-env/Chart.yaml \
+            | sed -E '/^version/d' | sed -E '/^appVersion/d' \
+            > envs/helm-env/Chart.yaml
+          echo "version: $RELEASE_VERSION" >> envs/helm-env/Chart.yaml
+          echo "appVersion: $RELEASE_VERSION" >> envs/helm-env/Chart.yaml
+      - name: Run chart-releaser
+        uses: helm/chart-releaser-action@v1.2.1
+        env:
+          CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          CR_PACKAGE_PATH: envs/helm-env
