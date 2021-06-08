@@ -80,14 +80,14 @@ There are different ways to work with the sample:
 
 ## Create Docker
 
-```
+```bash
 gradlew :services:app:build
 docker build -f services/app/src/docker/Dockerfile -t gradle-example-app services/app
 ```
 
 ## Build in Docker
 
-```
+```bash
 docker build -f services/app/src/docker/Dockerfile.build -t gradle-example-app .
 docker run -p80:8080 -t -i gradle-example-app # Use CTRL+C to close
 curl -w "\n" http://localhost/cat
@@ -167,7 +167,7 @@ kubectl logs <app-XXXXXXXX-XXXXX>
 3. Get app response:
 
 ```bash
-export NODE_PORT=$(kubectl get --namespace dev -o jsonpath="{.spec.ports[0].nodePort}" services gradle-example)
+export NODE_PORT=$(kubectl get --namespace dev -o jsonpath="{.spec.ports[0].nodePort}" services app)
 export NODE_IP=$(kubectl get nodes --namespace dev -o jsonpath="{.items[0].status.addresses[0].address}")
 echo http://$NODE_IP:$NODE_PORT/cat
 echo http://$NODE_IP:$NODE_PORT/entity
@@ -220,6 +220,47 @@ helm install gradle-example gradle-example/gradle-example -n dev
 
 ```bash
 export NODE_PORT=$(kubectl get --namespace dev -o jsonpath="{.spec.ports[0].nodePort}" services gradle-example)
+export NODE_IP=$(kubectl get nodes --namespace dev -o jsonpath="{.items[0].status.addresses[0].address}")
+curl -w "\n" http://$NODE_IP:$NODE_PORT/cat
+curl -w "\n" http://$NODE_IP:$NODE_PORT/entity
+ ```
+
+## Deploy project with [Argo CD](https://argoproj.github.io/argo-cd/) and plain YAML
+
+1. Deploy application
+
+```bash
+kubectl create namespace argocd 1️⃣ 
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+kubectl port-forward svc/argocd-server -n argocd 8080:443
+
+VERSION=$(curl --silent "https://api.github.com/repos/argoproj/argo-cd/releases/latest" \ 2️⃣ 
+  | grep '"tag_name"' | sed -E 's/.*"([^"]+)".*/\1/')
+curl -sSL -o /usr/local/bin/argocd https://github.com/argoproj/argo-cd/releases/download/$VERSION/argocd-linux-amd64
+chmod +x /usr/local/bin/argocd
+
+kubectl describe secrets/argocd-initial-admin-secret -n argocd 3️⃣ 
+password = $(kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath='{.data.password}' | base64 -d)
+argocd login localhost:8080 --username admin --password $password --insecure
+argocd account update-password
+
+argocd app create gradle-example --repo https://github.com/srcmaxim/gradle-example.git \ 4️⃣ 
+  --path services/app/src/kubernetes --dest-server https://kubernetes.default.svc --dest-namespace dev
+argocd app get gradle-example 5️⃣ 
+argocd app sync gradle-example 6️⃣
+```
+
+1️⃣ Install [Argo CD](https://argoproj.github.io/argo-cd/)  
+2️⃣ Download [Argo CD CLI](https://argoproj.github.io/argo-cd/cli_installation/)  
+3️⃣ Access The Argo CD API Server  
+4️⃣ Create An Application From A Git Repository  
+5️⃣ See app info  
+6️⃣ Sync (Deploy) app
+
+2. Get app response:
+
+```bash
+export NODE_PORT=$(kubectl get --namespace dev -o jsonpath="{.spec.ports[0].nodePort}" services app)
 export NODE_IP=$(kubectl get nodes --namespace dev -o jsonpath="{.items[0].status.addresses[0].address}")
 curl -w "\n" http://$NODE_IP:$NODE_PORT/cat
 curl -w "\n" http://$NODE_IP:$NODE_PORT/entity

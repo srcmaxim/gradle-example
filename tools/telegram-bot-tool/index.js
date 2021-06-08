@@ -25,13 +25,13 @@ async function handleRequest(event) {
     const requestBody = await request.text();
     const body = JSON.parse(requestBody);
 
-    const analysedAt = new Date(body.analysedAt).toLocaleTimeString('de-DE');
+    const analysedAt = new Date(body.analysedAt).toLocaleTimeString("de-DE");
 
     const message =
 `SonarCloud at ${analysedAt}
 Project[key=${body.project.key}, name=${body.project.name}]
 ${body.branch.url}
-${body.status} in ${body.branch.name}`;
+${body.status} in ${parseRef(body.branch.name)}`;
 
     return sendMessage(message);
   }
@@ -40,15 +40,13 @@ ${body.status} in ${body.branch.name}`;
     const requestBody = await request.text();
     const body = JSON.parse(requestBody);
 
-    const updatedAt = new Date(body.repository.updated_at).toLocaleTimeString('de-DE');
-    const refStart = "refs/heads/";
-    const branch = body.ref.startsWith(refStart) ? body.ref.substr(refStart.length) : body.ref;
+    const updatedAt = new Date(body.repository.updated_at).toLocaleTimeString("de-DE");
 
     const message =
 `GitHub at ${updatedAt}
 Project: ${body.repository.full_name}
 ${body.repository.html_url}
-PUSH in ${branch} by ${body.sender.login}`;
+PUSH in ${parseRef(body.ref)} by ${body.sender.login}`;
 
     return sendMessage(message);
   }
@@ -57,13 +55,13 @@ PUSH in ${branch} by ${body.sender.login}`;
     const requestBody = await request.text();
     const body = JSON.parse(requestBody);
 
-    const updatedAt = new Date().toLocaleTimeString('de-DE');
+    const updatedAt = new Date().toLocaleTimeString("de-DE");
 
     const message =
 `Quay at ${updatedAt}
 Repository: ${body.repository}
 ${body.homepage}
-DOCKER_PUSH in ${body.updated_tags}`;
+DOCKER_PUSH in ${parseRef(body.updated_tags)}`;
 
     return sendMessage(message);
   }
@@ -72,7 +70,7 @@ DOCKER_PUSH in ${body.updated_tags}`;
     const requestBody = await request.text();
     const body = JSON.parse(requestBody);
 
-    const updatedAt = new Date().toLocaleTimeString('de-DE');
+    const updatedAt = new Date().toLocaleTimeString("de-DE");
 
     const package = body.data.package;
 
@@ -80,12 +78,29 @@ DOCKER_PUSH in ${body.updated_tags}`;
 `ArtifactHUB at ${updatedAt}
 Repository: ${package.name}
 ${package.url}
-HELM_PUSH in ${package.version}`;
+HELM_PUSH in ${parseRef(package.version)}`;
 
     return sendMessage(message);
   }
 
   return fetch("https://welcome.developers.workers.dev");
+}
+
+function parseRef(ref) {
+  const tagRef = "refs/tags/";
+  const headRef = "refs/heads/";
+  const versionRef = /v\d+.\d+.\d+/;
+
+  if (ref.startsWith(tagRef)) {
+    ref = ref.substring(tagRef.length)
+  }
+  if (ref.startsWith(headRef)) {
+    ref = ref.substring(headRef.length)
+  }
+  if (versionRef.test(headRef)) {
+    ref = ref.substring(1);
+  }
+  return ref;
 }
 
 function sendMessage(message) {
