@@ -199,9 +199,9 @@ cat << EOF > README.md
 Add this repository
 `helm repo add gradle-example https://srcmaxim.github.io/gradle-example`
 EOF
-helm package envs/helm-env
+helm package envs/helm-env/gradle-example
 helm repo index . --url https://srcmaxim.github.io/gradle-example/
-git add gradle-example-*.tgz index.yaml
+git add gradle-example-*.tgz index.yaml index.html README.md
 git commit -m "Add HELM artifact gradle-example:1.0.0"
 
 helm repo add gradle-example https://srcmaxim.github.io/gradle-example/ 2️⃣
