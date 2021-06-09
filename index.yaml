@@ -11,14 +11,4 @@ entries:
     urls:
     - https://github.com/srcmaxim/gradle-example/releases/download/gradle-example-1.0.9/gradle-example-1.0.9.tgz
     version: 1.0.9
-  - apiVersion: v2
-    appVersion: 1.0.0.RC1
-    created: "2021-06-06T10:39:38.4096599+03:00"
-    description: A Helm chart for Kubernetes
-    digest: 4d676bc2ce6c46a13f4391f7e65d09d4e06d7bbdcd812c418fbee52192abdbdc
-    name: gradle-example
-    type: application
-    urls:
-    - https://srcmaxim.github.io/gradle-example/gradle-example-1.0.0.tgz
-    version: 1.0.0
 generated: "2021-06-09T08:38:35.830118+03:00"
