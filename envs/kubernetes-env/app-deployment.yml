@@ -19,6 +19,21 @@ spec:
     spec:
       containers:
         - image: quay.io/srcmaxim/gradle-example-app:latest
+          env:
+            - name: SERVER_ADDRESS
+              value: 0.0.0.0 # For http probes
           name: app
           ports:
-            - containerPort: 8080
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /cat
+              port: http
+            periodSeconds: 45
+          readinessProbe:
+            httpGet:
+              path: /cat
+              port: http
+            periodSeconds: 45
