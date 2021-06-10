@@ -6,8 +6,7 @@ replicaCount: 1
 
 image:
   repository: quay.io/srcmaxim/gradle-example-app
-  pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
+  pullPolicy: Always
   tag: "latest"
 
 imagePullSecrets: []
@@ -39,7 +38,6 @@ securityContext: {}
 service:
   type: NodePort
   port: 8080
-  nodePort: 30000
 
 ingress:
   enabled: false
