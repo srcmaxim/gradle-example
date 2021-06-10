@@ -2,6 +2,16 @@ apiVersion: v1
 entries:
   gradle-example:
   - apiVersion: v2
+    appVersion: 1.1.2
+    created: "2021-06-10T07:48:35.522334415Z"
+    description: A Helm chart for Kubernetes
+    digest: 03f32fe7cf32a643d42ead53342719fc7a18bd8bac516d2d919712bbb0507d27
+    name: gradle-example
+    type: application
+    urls:
+    - https://github.com/srcmaxim/gradle-example/releases/download/gradle-example-1.1.2/gradle-example-1.1.2.tgz
+    version: 1.1.2
+  - apiVersion: v2
     appVersion: 1.1.0
     created: "2021-06-09T06:42:24.758421122Z"
     description: A Helm chart for Kubernetes
@@ -21,4 +31,4 @@ entries:
     urls:
     - https://github.com/srcmaxim/gradle-example/releases/download/gradle-example-1.0.9/gradle-example-1.0.9.tgz
     version: 1.0.9
-generated: "2021-06-09T06:42:24.758428022Z"
+generated: "2021-06-10T07:48:35.522346515Z"
