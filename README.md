@@ -175,6 +175,12 @@ echo http://$NODE_IP:$NODE_PORT/cat
 echo http://$NODE_IP:$NODE_PORT/entity
  ```
 
+4. Get app response inside kubernetes:
+
+```bash
+kubectl run curl-app --image=radial/busyboxplus:curl -i --tty --rm -n dev
+```
+
 ## Run project with HELM
 
 1. Install [HELM](https://helm.sh/docs/intro/install/)
